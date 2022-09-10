@@ -1,0 +1,17 @@
+.brief{
+    min-height: 200px !important;
+    padding-top: 80px !important;
+    padding-bottom: 50px !important;
+}
+
+.light{
+    color: #fff !important;
+}
+
+.dark{
+    color: rgb(19, 17, 17) !important;
+}
+
+.padding{
+    padding: 45px !important;
+}

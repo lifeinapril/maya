@@ -1,0 +1,101 @@
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .navbar-toggler{
+      border: none !important;
+  }
+  
+.headbar {
+    padding: 5px !important;
+    margin: 0px !important;
+ }
+
+
+ @media only screen and (max-width: 600px){
+ .minibar {
+      display: none !important;
+  }
+}
+
+ .bg-dark{
+    color:  #fff !important;
+     background: rgb(27, 27, 27); 
+    background: linear-gradient(144deg, rgb(10, 10, 10) 3%, rgba(2, 2, 2, 0.663) 57%, rgba(0, 0, 0, 0.727) 80%);
+ }
+
+ .bg-white{
+    color:  rgb(3, 3, 3) !important;
+     background: linear-gradient(144deg, rgb(255, 255, 255) 3%, rgba(214, 214, 214, 0.663) 57%, rgba(248, 248, 248, 0.727) 80%);
+ }
+.appicon{
+    animation-duration: 0.9s;
+    animation-delay: 0s;
+    animation-name:  App-logo-spin;
+}
+
+
+ .bg-naked{
+     background: rgba(0, 0, 0, 0.438) !important;
+ }
+ .navbar-dark{
+    color:  #fff !important;
+    background: rgba(13, 13, 13, 0.863) !important;
+ }
+ .btn-dark{
+     background-color: rgba(42, 50, 50, 0.156) !important;
+     color:  #fff !important;
+ }
+
+
+
+ .bg-darker{
+    color:  #fff !important;
+    background: rgb(0, 0, 0) !important;
+}
+
+.bg-darker a{
+   color:  #fff !important;
+   text-decoration: none !important;
+}
+.footer{
+    position: absolute !important;
+    bottom: 0px !important;
+}
+
+.tray {
+    float: right !important;
+    text-align: center !important;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.325);
+    background-color: rgba(123, 1, 1, 0.073) !important;
+    border-radius: 20px !important;
+    direction: ltr !important;
+    right: 0px !important;
+    justify-content: flex-end !important;
+}
+
+.mini-dark{
+    color:  #fff;
+     background: rgba(0, 0, 0, 0.934);
+ }
+
+
+ .mini-light{
+    color:  rgb(3, 3, 3);
+     background: rgb(255, 255, 255);
+ }
+
+
+
+
+
+
+
+

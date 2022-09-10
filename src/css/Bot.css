@@ -1,0 +1,15 @@
+.maya-bot{
+    background-color: black !important;
+    color: #fff !important;
+    max-width: 500px !important;
+    border-radius: 5% !important;
+    margin:20px !important;
+    right:-13px !important;
+    position: fixed !important;
+    bottom: 10px !important;
+    border: #000 !important;
+    z-index: 100000 !important;
+    height: auto !important;
+  }
+
+  

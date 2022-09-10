@@ -1,0 +1,50 @@
+.carousel{
+    min-height: 80vh;
+    float: left !important;
+    background-color: #000 !important;
+    width: 100% !important;
+    margin: 0px !important;
+}
+.carousel-item{
+    float: left !important;
+    background-size: cover !important;
+    background-repeat:no-repeat !important;
+    background-position: center !important;
+    height: 80vh;
+    width: 100% !important;
+}
+.slider-caption{
+    padding: 30px !important;
+    max-width: 420px !important;
+    margin: 50px !important;
+    height: auto !important;
+    display: inline-block !important;
+    background: rgba(0, 0, 0, 0.64);
+    background: linear-gradient(144deg, rgb(96, 16, 36) 3%, rgba(10, 0, 3, 0.663) 57%, rgba(0, 0, 0, 0.526) 80%);
+    color: #fff !important;
+    bottom: 0px !important;
+    position:absolute !important;
+    border-radius: 9px !important;
+    border: 1px solid linear-gradient(144deg, rgb(202, 1, 45) 3%, rgba(121, 2, 36, 0.663) 57%, rgba(32, 1, 10, 0.246) 80%);
+   
+}
+ .slider-body{
+    font-size: 13px !important;
+    margin-top: 20px !important;
+    font-weight: bolder !important;
+    float: left !important;
+}
+
+.slider-caption h4{
+    font-size: 23px !important;
+    font-family: "Work Sans", sans-serif;
+    line-height: 33px !important;
+    word-spacing: 2px !important;
+    font-weight: lighter !important;
+}
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+.maya-section{
+    width: 100% !important;
+    padding-top: 90px !important;
+    height: auto !important;
+    padding: 15px;
+    float: left !important;
+}
+.section-dark{
+    color: rgb(255, 255, 255) !important;
+    background: rgb(0, 0, 0) !important;
+    }
+
+  .section-light{
+        background: #fff !important;
+        color: black !important;
+    }

@@ -1,0 +1,91 @@
+
+.brief{
+    min-height: 300px !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.sec{
+    max-width: 380px !important;
+    margin: auto !important;
+    border-radius:20px !important;
+}
+.brief-round{
+    border-radius:20px !important;
+}
+.brief-dark{
+    background: rgb(0,0,0);
+    background: linear-gradient(144deg, rgba(0,0,0,1) 0%, rgba(23,1,4,1) 47%, rgba(89,7,32,1) 100%);
+    }
+
+  .brief-light{
+        background: #fff !important;
+        }
+            
+
+.brief-head{ 
+    font-size: 30px !important;
+}
+          
+
+.brief-icon{ 
+    font-size: 60px !important;
+    margin: 30px !important;
+}
+
+.text-left{
+    text-align: left !important;
+}
+.text-right{
+    text-align: right !important;
+}
+.text-center{
+    text-align: center !important;
+}
+
+.brief-body{ 
+    font-size: 15px !important;
+}
+
+.light,.light .icon{
+    color: #fff !important;
+}
+
+.dark,.dark .icon{
+    color: rgb(19, 17, 17) !important;
+}
+
+.padding{
+    padding: 45px !important;
+}
+
+.text-teal{
+    color: teal !important;
+}
+
+
+
+
+
+
+
+
+
+ .info-enter {
+    opacity: 0.01;
+  }
+  
+  .info-enter.info-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+  }
+  
+  .info-leave {
+    opacity: 1;
+  }
+  
+  .info-leave.info-leave-active {
+    opacity: 0.01;
+    transition: opacity 1000ms ease-in;
+  }
+  
+

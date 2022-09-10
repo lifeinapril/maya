@@ -1,0 +1,69 @@
+
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.maya-icon{
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    content: icon;
+    display:inline-block;
+    direction: ltr;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    margin-bottom: -3px !important;
+}
+  
+.spin-icon{
+    animation:logo-spin 1.9s infinite;
+}
+
+.icon-red{  
+    background-image: url("../images/icon.png");
+ }
+
+ .icon-light{  
+    background-image: url("../images/icon-white.png");
+  }
+
+ .maya-input{
+    border-radius: 14px !important;
+    padding: 8px !important;
+    padding-left: 22px !important;
+    border: none !important;
+    background-color: rgba(62, 62, 62, 0.272) !important;
+    appearance: none !important;
+    color:rgb(0, 0, 0) !important;
+    width: 100% !important;
+ }
+
+ .maya-input:hover{
+    background-color: rgba(255, 255, 255, 0.954) !important;
+    color:rgb(0, 0, 0) !important;
+    border: 1px solid rgb(35, 35, 35);
+ }
+
+
+ .form-control::selection{
+    background-color: rgba(255, 255, 255, 0.954) !important;
+    color:rgb(0, 0, 0) !important;
+    border: 1px solid rgb(127, 13, 34) !important;
+ }
+
+
+
+ .btn-dark-coral{
+     color: rgb(173, 171, 171) !important;
+}
+
+.btn-light-coral{
+    color: rgb(251, 124, 121) !important;
+}

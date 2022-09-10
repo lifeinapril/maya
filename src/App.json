@@ -1,0 +1,55 @@
+{
+    "name":"maya",
+    "slogan":"your cloud assistance to your favourite apps",
+    "contacts":{
+      "phone":"+234 906 529 1086",
+      "email":"deendevelopers@gmail.com",
+      "instagram":"deendevelopers",
+      "twitter":"deendevelopers",
+      "facebook":"deendevelopers"
+    },
+  "about":[
+    {   
+        "title":"Get everyday tasks done for you",
+        "body":"Maya learns your patterns and recommends an automated routine of tasks so that you no longer have to spend your time on repeating the same tasks and chores"
+    },
+    {   
+        "title":"Built For Voice",
+        "body":"Find more intuitive ways to interact with the apps you use every day with voice cognition and commands, no need to write it down, just say it"
+    },
+    {
+        "title":"Make it simpler with Quick commands",
+        "body":"Start your day fresh by having maya read aloud your messages, remind you of the day's schedule, and start your office playlist - all with a 'good morning’."
+    },
+    {
+        "title":"Secure Your Identity",
+        "body":"You can use Maya speech recognition and face recognition to gain access to your favourite apps and services"
+    },
+    {
+        "title":"Connect to other apps",
+        "body":"Connect with your favourite apps in an intelligent way and use the power of AI to interact with them"
+    }
+],
+"slides":[
+    {   
+        "body":"Keep up with sports",
+        "title":"`Hey maya, what were the final scores of last night's game?...`"
+    },
+    {   
+        "body":"Play an album or song",
+        "title":"`Maya, play me something from my work playlist...`"
+    },
+    {
+        "body":"Help With Shopping",
+        "title":"`Maya, i'm hungry, let's order specials for dinner tonight...`"
+    },
+    {
+        "body":"Set Reminders",
+        "title":"`Maya, remind me to call Mom on Sunday at 2 p.m...`"
+    },
+    {
+        "body":"Deliver a message",
+        "title":"`Hey maya, can you help me let sandra know i'm on my way...`"
+    }
+]
+}

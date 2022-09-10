@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+
+body {
+   font-family: 'Comfortaa';
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #fb617d;
+}
+
+
+
+.input-dark{
+  border:1px solid rgba(24, 24, 24, 0.874) !important;
+  background-color: rgba(39, 38, 38, 0.874) !important;
+  color: aliceblue !important;
+}
+
+
+

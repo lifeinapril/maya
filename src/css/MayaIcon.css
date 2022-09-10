@@ -1,0 +1,37 @@
+
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+.maya-icon{
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    content: icon;
+    display:inline-block;
+    direction: ltr;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    margin-bottom: -3px !important;
+}
+  
+.spin-icon{
+    animation:logo-spin 1.9s infinite;
+}
+
+.icon-red{  
+    background-image: url("../images/icon.png");
+ }
+
+ .icon-light{  
+    background-image: url("../images/icon-white.png");
+  }
+
+ 

@@ -1,0 +1,112 @@
+$u: 1.25;
+$d: 14em;
+$p: .5em;
+$o: 1.25em;
+$l: 6px;
+
+*, ::before { box-sizing: inherit; margin: 0 }
+h1{
+    font-size: 45px !important;
+}
+
+.custom-border {
+	font-size: 1.6rem;
+	min-height: 200px;
+	border: 8px solid;
+	padding: 1rem;
+}
+
+
+.bg-tint{
+    color: #fff;
+    box-shadow: inset 0px 500px 400px 0px rgba(0, 0, 0, 0.466) !important;
+    background-size: cover !important;
+    background-repeat:no-repeat !important;
+    background-position:center !important;
+}
+
+
+
+.full {
+	border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+}
+
+.sides {
+	border-image: linear-gradient(to left, turquoise, greenyellow) 1 0;
+}
+.sides-2 {
+	border-image: linear-gradient(to bottom, turquoise, greenyellow) 0 1;
+}
+
+.linear-repeating {
+	border-width: 10px;
+	border-image: repeating-linear-gradient(45deg, turquoise, pink 4%) 1;
+}
+
+.radial-repeating {
+	border-width: 20px;
+	border-image: repeating-radial-gradient(
+			circle at 10px,
+			turquoise,
+			pink 2px,
+			greenyellow 4px,
+			pink 2px
+		)
+		1;
+}
+
+/* border radius example is drawn from this pen: https://codepen.io/shshaw/pen/MqMZGR
+I've added a few comments on why we're using certain properties
+*/
+
+.full-withradius {
+	position: relative;
+	background: rgb(71, 94, 50);
+
+	border: solid 8px transparent;
+	border-radius: 0.8rem;
+
+&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		margin: -8px; /* same as border width */
+		border-radius: inherit; /* inherit container box's radius */
+		background: linear-gradient(to left, turquoise, greenyellow) !important;
+	}
+}
+
+
+.headshot {
+	flex-shrink: 0;
+	margin: 20px;
+	height: calc(150px + 6vw);
+	width: calc(150px + 6vw);
+	border: calc(8px + 0.2vw) solid transparent;
+	background-origin: border-box;
+	background-size: cover;
+	box-sizing: border-box;
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.headshot-1 {
+	border-radius: 30%;
+	background-image: var(--img-url), linear-gradient(#f9f047, #0fd850);
+}
+
+.headshot-2 {
+	border-radius: 50%;
+	background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
+}
+
+.headshot-3 {
+	border-radius: 50% 10%;
+	background-image: var(--img-url), linear-gradient(to bottom left, #f83600, #f9d423);
+}
+
+
+

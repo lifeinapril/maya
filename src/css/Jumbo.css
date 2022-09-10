@@ -1,0 +1,26 @@
+.box{
+    height: auto;
+    color: #fff;
+    box-shadow: inset 0px 500px 400px 0px rgba(0, 0, 0, 0.432) !important;
+    padding-top: 150px !important;
+    background-size: cover !important;
+    background-repeat:no-repeat !important;
+    text-align: left !important;
+    padding: 50px !important;
+}
+
+ .box h1{
+     font-size: 67px !important;
+}
+
+.border-curve{
+    border-radius: 16px !important;
+}
+
+
+.tint{
+    background-color: rgba(0, 0, 0, 0.514) !important;
+    background-blend-mode: soft-light !important;
+    background-size: cover !important;
+    background-position:center !important;
+}

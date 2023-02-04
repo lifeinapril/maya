@@ -11,8 +11,6 @@ import './css/Splash.css';
 import {CSSTransition,TransitionGroup} from "react-transition-group";
 import Auth from './pages/Auth';
 import Result from './pages/Result';
-import Apps from './pages/Apps';
-import Profile from './pages/Profile';
 
 const Maya = function(props){
   const [isLoading,setLoader] = useState(true);
@@ -41,8 +39,6 @@ return (
       <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       <Route path='/auth' element={<Auth name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       <Route path='/:query' element={<Result name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
-      <Route path='/apps' element={<Apps name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
-      <Route path='/profile' element={<Profile name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
   </Router>
   </>

@@ -1,19 +1,35 @@
-import React from 'react';
+import {React, useState } from 'react';
+
 import "../../css/MayaInput.css";
-import {Form,Button,Stack, Container
+import {Form, Container
 } from 'react-bootstrap';
-import {RiMicFill} from "react-icons/ri";
 
 
 const MayaInput = (props) => {
+    const [input, setInput] = useState('');
+    var search = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:8000/search',{
+        method: 'POST',
+        body: JSON.stringify({
+                    term: input,
+                    a_id: Math.random().toString(36).slice(2),}),
+        headers: {'Content-type': 'application/json; charset=UTF-8',}
+        })
+        .then((data) => {
+            //
+           console.log("searching.......");
+        })
+        .catch((err) => {
+           console.log(err.message);
+        });
+     };
+
 return (
     <Container style={{margin:"auto"}}>
-    <Stack direction="horizontal" gap={1}>
-        <Form.Control className="maya-input" placeholder="What can i do for you today?" />
-        <Button variant={props.dark ? 'dark-coral':"light-coral"} style={{marginTop:5}}>
-        <RiMicFill/>
-        </Button>
-    </Stack>
+        <Form onSubmit={search}>
+            <Form.Control className="maya-input" value={input} onSubmit={search} onChange={e => setInput(e.target.value)} placeholder="What can i do for you today?" />
+        </Form>
     </Container>
 )
 }

@@ -2,6 +2,7 @@
   "name": "maya",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/maya",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
@@ -48,6 +49,8 @@
   },
   "devDependencies": {
     "node-sass": "^7.0.1",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }

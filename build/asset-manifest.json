@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/deendevelopers/maya/static/css/main.452493a4.css",
+    "main.js": "/deendevelopers/maya/static/js/main.ccec8576.js",
+    "static/media/maya6.jpeg": "/deendevelopers/maya/static/media/maya6.dfefd172bec97bd4acc0.jpeg",
+    "static/media/maya4.jpeg": "/deendevelopers/maya/static/media/maya4.49323f3b33fadbbd6175.jpeg",
+    "static/media/icon.png": "/deendevelopers/maya/static/media/icon.db2ce64170c864322a6d.png",
+    "static/media/logo.png": "/deendevelopers/maya/static/media/logo.db2ce64170c864322a6d.png",
+    "static/media/maya5.jpeg": "/deendevelopers/maya/static/media/maya5.bffd27df312645fb29b9.jpeg",
+    "static/media/maya2.jpeg": "/deendevelopers/maya/static/media/maya2.b812d98a8c358823a02f.jpeg",
+    "static/media/maya3.avif": "/deendevelopers/maya/static/media/maya3.af4ce3984ea3875a9b5d.avif",
+    "static/media/maya9.jpeg": "/deendevelopers/maya/static/media/maya9.77888ed5f437d7d69b7b.jpeg",
+    "index.html": "/deendevelopers/maya/index.html",
+    "main.452493a4.css.map": "/deendevelopers/maya/static/css/main.452493a4.css.map",
+    "main.ccec8576.js.map": "/deendevelopers/maya/static/js/main.ccec8576.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.452493a4.css",
+    "static/js/main.ccec8576.js"
+  ]
+}

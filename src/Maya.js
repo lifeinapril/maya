@@ -4,6 +4,7 @@ import React, { useEffect,useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Splash from './components/Sections/Splash';
+import { BrowserRouter } from 'react-router-dom';
 import demo from "./Config";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -34,13 +35,13 @@ return (
   </TransitionGroup>
    :
      <>
-  <Router>
+     <BrowserRouter basename="/maya">
       <Routes>
       <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       <Route path='/auth' element={<Auth name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       <Route path='/:query' element={<Result name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
-  </Router>
+    </BrowserRouter>
   </>
 }
 </>

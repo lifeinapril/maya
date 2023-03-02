@@ -1,33 +1,42 @@
-import React from 'react';
-import HeadBar from '../components/Bars/HeadBar';
-import MayaInput from '../components/Items/MayaInput';
+
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from 'react-bootstrap';
 import Foot from '../components/Bars/Foot';
 import demo from "../Config";
-import Bot from '../components/Items/Bot';
+import Chat from '../components/Sections/Chat';
+import { useParams } from "react-router-dom";
 
-
-class Home extends React.Component {
-  render() {
+function Home(props) {
+    const { param_id } = useParams();
+    const [id, setID] = useState(null);
+    useEffect(() => {
+            if(param_id){
+                setID(param_id);
+            }else{
+                fetch(props.api+'chat/new',{
+                    method: 'GET',
+                    headers: {'Content-type': 'application/json; charset=UTF-8',}
+                    })
+                    .then((Data) => {
+                        console.log(Data.data);
+                        setID(Data.data);
+                    })
+                    .catch((err) => {
+                       console.log(err.message);
+                    });
+            }
+      }, []);
+                  
         return (
             <>
               <div  className={this.props.dark ? 'bg-dark':'bg-light'}>
             <div className="d-center align-items-center justify-content-center text-center min-vh-100">
-            <HeadBar dark={this.props.dark} setTheme={this.props.setTheme}/>
-                      <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <img alt="logo" src={this.props.icon} style={{height:130,margin:16}}/>
-                        <h3>{this.props.name}</h3>
-                        <br/>
                         <Container>
                             <Row>
                                 <Col md={3} lg={3} sm={false} xs={false}>  
                                 </Col>
                                 <Col md={6} lg={6} sm={12} xs={12}>  
-                                    <MayaInput />
+                                    <Chat api={props.api} id={id} />
                                 </Col> 
                                 <Col md={2} lg={2} sm={false} xs={false}>  
                                 </Col>
@@ -38,7 +47,6 @@ class Home extends React.Component {
             </div>
             </>
         );
-    }
 
 }
 

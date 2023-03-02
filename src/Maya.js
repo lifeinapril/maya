@@ -11,7 +11,7 @@ import './App.css';
 import './css/Splash.css';
 import {CSSTransition,TransitionGroup} from "react-transition-group";
 import Auth from './pages/Auth';
-import Result from './pages/Result';
+const api="http://localhost:5000/";
 
 const Maya = function(props){
   const [isLoading,setLoader] = useState(true);
@@ -37,9 +37,8 @@ return (
      <>
      <BrowserRouter basename="/maya">
       <Routes>
-      <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
-      <Route path='/auth' element={<Auth name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
-      <Route path='/:query' element={<Result name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/' element={<Home name={demo.name} api={api} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+        <Route path='/auth/:id' element={<Auth name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
     </BrowserRouter>
   </>

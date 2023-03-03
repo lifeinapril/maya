@@ -73,15 +73,21 @@
     height:auto !important;
     width:97% !important;
     max-width:650px !important;
-    color: #1a1a1a !important;
+    color: #000000 !important;
+    background-color: #ececec !important;
     bottom: 0px !important;
     position: fixed !important;
     display: block !important;
-    bottom: 14 !important;
+    padding: 5px !important;
+    padding-bottom: 14px !important;
+    bottom: 0 !important;
     float: left !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
   }
   
   .maya-input{
-    border-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
   }
 

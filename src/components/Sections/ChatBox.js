@@ -97,7 +97,7 @@ return (
                             {isLoading ? (
                                 <Spinner animation="grow" variant="dark" size={20} />
                             ) : (
-                                <Button disabled={isLoading} variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                                <Button disabled={isLoading} variant="clear" type="submit" size='sm'><RiSendPlane2Fill/></Button>
                                 )}
                            </div>
                     </Form>

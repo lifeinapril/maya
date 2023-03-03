@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import demo from "../Config";
 import ChatBox from '../components/Sections/ChatBox';
+import HeadBar from "../components/Bars/HeadBar";
 
 function Home() {
     const { param_id } = useParams();
@@ -29,6 +30,7 @@ function Home() {
                   
         return (
             <>
+            <HeadBar icon={demo.icon} name={demo.name}/>
             <div className="d-center align-items-center justify-content-center text-center min-vh-100">
                         <Container>
                             <Row>

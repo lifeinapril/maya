@@ -66,8 +66,10 @@
    text-decoration: none !important;
 }
 .footer{
-    position: absolute !important;
+    position: fixed !important;
     bottom: 0px !important;
+    padding-bottom: 20px !important;
+    background: linear-gradient(to bottom, #ffffff13, #ffffff) !important;
 }
 
 .tray {

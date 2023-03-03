@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form,Container, Spinner } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
@@ -61,7 +61,6 @@ function ChatBox(props) {
 
 return (
             <>
-            {chat.conversations.length > 0 ? <img alt="logo" className={isLoading ? "appicon":null} src={app.icon} style={{height:30,margin:10}}/>:null}
             <div className="chat_board">
                     <div className="gap"></div>   
                     {chat.conversations.length > 0 ?
@@ -76,9 +75,9 @@ return (
                         })
                         : 
                     <div>
-                        <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
+                        {/* <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
                         <h3>{app.name}</h3>
-                        <br/>
+                        <br/> */}
                         <h6><RiSunFill/> Examples</h6>
                         <SmallBox text="`Is it possible to teach machines ethics, empathy or compassion?`" />
                         <br/>
@@ -89,23 +88,22 @@ return (
                     }
                     <div className="gap"></div>
             </div>
-
-            <div className="message_bar">     
-                    <Form onSubmit={ask}>
-                            <div className="input-group">
-                            <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                            {isLoading ? (
-                                <Spinner animation="grow" variant="dark" size={20} />
-                            ) : (
-                                <Button disabled={isLoading} variant="clear" type="submit" size='sm'><RiSendPlane2Fill/></Button>
-                                )}
-                           </div>
-                    </Form>
-                    <div className="text-center">
-                    <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
-                    <br/>
-                    </div>
-            </div>
+            <Container fluid className="text-center footer">     
+                        <Form onSubmit={ask}>
+                                <div className="input-group">
+                                <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                                {isLoading ? (
+                                    <Spinner animation="grow" variant="orange" size={24} />
+                                ) : (
+                                    <Button disabled={isLoading || !input} variant="clear" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                                    )}
+                            </div>
+                        </Form>
+                        <div className="text-center">
+                        <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
+                        <br/>
+                        </div>
+            </Container>
             </>
 )
 }

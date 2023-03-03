@@ -34,26 +34,28 @@ function ChatBox(props) {
 
     var ask = (e) => {
         e.preventDefault();
-        startLoader(true);
-        fetch(app.api+'ask',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ _id: props.id, text: input })
-            }).then(response => response.json())
-            .then((Data) => {
-                setInput("");
-                startLoader(false);
-                console.log("Asked:");
-                console.log(Data);
-                if(Data.success){
-                    setChat(Data.data);
-                }
-            })
-            .catch((err) => {
-            console.log(err.message);
-            });
+        if(input){
+            startLoader(true);
+            fetch(app.api+'ask',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ _id: props.id, text: input })
+                }).then(response => response.json())
+                .then((Data) => {
+                    setInput("");
+                    startLoader(false);
+                    console.log("Asked:");
+                    console.log(Data);
+                    if(Data.success){
+                        setChat(Data.data);
+                    }
+                })
+                .catch((err) => {
+                console.log(err.message);
+                });
+        }
      };
 
      

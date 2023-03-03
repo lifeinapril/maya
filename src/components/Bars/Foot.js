@@ -7,8 +7,9 @@ class Foot extends React.Component{
   render(){
   return (
     <>
-      <Container className={`text-center padding footer`}>
-           <small>&copy; {new Date().getFullYear()} Copyright: Deen Developers</small>
+      <Container fluid className={`text-center padding footer`}>
+           <br/>
+           <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
            <br/>
            <br/>
       </Container>

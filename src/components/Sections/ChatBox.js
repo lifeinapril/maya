@@ -15,12 +15,8 @@ function ChatBox(props) {
         _id:props.id,
         conversations:[]
     });
-    const [socket, setSocket] = useState(null);
-
     
     useEffect(() => {
-        const newSocket = io(app.api);
-        setSocket(newSocket);
         fetch(app.api+'chat/'+props.id,{
             method: 'GET'
             }).then(response => response.json())
@@ -34,16 +30,17 @@ function ChatBox(props) {
             .catch((err) => {
                console.log(err.message);
             });
-        return () => newSocket.disconnect();
     }, [props.id]);
 
-    if (socket) {
-        socket.on("answer", () => {
-        console.log("answered!");
-        fetch(app.api+'chat/'+props.id,{
-            method: 'GET'
+    var ask = (e) => {
+        e.preventDefault();
+        startLoader(true);
+        fetch(app.api+'ask',{
+            method: 'POST',
+            data:{ _id: props.id, text: input }
             }).then(response => response.json())
             .then((Data) => {
+                setInput("");
                 startLoader(false);
                 if(Data.success){
                     setChat(Data.data);
@@ -52,15 +49,6 @@ function ChatBox(props) {
             .catch((err) => {
             console.log(err.message);
             });
-            });
-      }
-
-
-    var ask = (e) => {
-        e.preventDefault();
-        startLoader(true);
-        socket.emit("ask", { _id: props.id, text: input });
-        setInput("");
      };
 
      
@@ -100,8 +88,8 @@ return (
                     <Form onSubmit={ask}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <div className="input-group">
-                            <Form.Control value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                            <Button variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                            <Form.Control disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                            <Button disabled={isLoading} variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
                            </div>
                         </Form.Group>
                     </Form>

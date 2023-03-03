@@ -10,10 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './css/Splash.css';
 import {CSSTransition,TransitionGroup} from "react-transition-group";
-import Auth from './pages/Auth';
-const api="http://localhost:5000/";
 
-const Maya = function(props){
+const Maya = function(){
   const [isLoading,setLoader] = useState(true);
   const [dark, setTheme] = useState(false);
     useEffect(()=>{
@@ -37,8 +35,7 @@ return (
      <>
      <BrowserRouter basename="/maya">
       <Routes>
-      <Route path='/' element={<Home name={demo.name} api={api} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
-        <Route path='/auth/:id' element={<Auth name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
     </BrowserRouter>
   </>

@@ -16,7 +16,7 @@ import slide5 from "./images/sliders/x.jpeg";
 
 
 import {RiMagicFill,RiApps2Fill,RiUserVoiceFill,RiShieldCheckFill} from "react-icons/ri";
-import {VscTasklist,VscSmiley,VscReactions} from "react-icons/vsc";
+import {VscTasklist} from "react-icons/vsc";
 
 import jumbo1 from "./images/maya6.jpeg";
 import jumbo2 from "./images/maya5.jpeg";

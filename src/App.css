@@ -4,6 +4,7 @@
 
 body {
    font-family: 'Comfortaa';
+  background: linear-gradient(to bottom, #ffffff, #e2e2e28f);
 }
 
 .App {

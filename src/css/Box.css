@@ -5,4 +5,6 @@
     border-radius: 50%;
   }
 
-  
+  .example{
+    background-color: rgba(255, 179, 179, 0.142) !important;
+  }

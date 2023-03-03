@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
-import Foot from '../components/Bars/Foot';
 import demo from "../Config";
 import ChatBox from '../components/Sections/ChatBox';
 
@@ -42,7 +41,7 @@ function Home() {
                                 </Col>
                             </Row>
                         </Container>
-                        <Foot name={demo.name} icon={demo.icon}/>
+                        {/* <Foot name={demo.name} icon={demo.icon}/> */}
             </div>
             </>
         );

@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import io from "socket.io-client";
 import React, { useState, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
@@ -93,13 +92,19 @@ return (
 
             <div className="message_bar">     
                     <Form onSubmit={ask}>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
                             <div className="input-group">
-                            <Form.Control disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                            <Button disabled={isLoading} variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                            <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                            {isLoading ? (
+                                <Spinner animation="grow" variant="dark" size={20} />
+                            ) : (
+                                <Button disabled={isLoading} variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                                )}
                            </div>
-                        </Form.Group>
                     </Form>
+                    <div className="text-center">
+                    <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
+                    <br/>
+                    </div>
             </div>
             </>
 )

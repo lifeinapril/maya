@@ -34,23 +34,6 @@
     background-image: url("../images/icon-white.png");
   }
 
- .maya-input{
-    border-radius: 14px !important;
-    padding: 8px !important;
-    padding-left: 22px !important;
-    border: none !important;
-    background-color: rgba(62, 62, 62, 0.272) !important;
-    appearance: none !important;
-    color:rgb(0, 0, 0) !important;
-    width: 100% !important;
- }
-
- .maya-input:hover{
-    background-color: rgba(255, 255, 255, 0.954) !important;
-    color:rgb(0, 0, 0) !important;
-    border: 1px solid rgb(35, 35, 35);
- }
-
 
  .form-control::selection{
     background-color: rgba(255, 255, 255, 0.954) !important;

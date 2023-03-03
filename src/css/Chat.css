@@ -49,7 +49,7 @@
   
   
   .chat_board{
-    height:75vh !important;
+    height:100vh !important;
     width: 100% !important;
     float: left !important;
     overflow-y: scroll !important;

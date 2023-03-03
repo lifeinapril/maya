@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import io from "socket.io-client";
 import React, { useState, useEffect } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
 import SmallBox from "../Items/SmallBox";
-import {RiSunFill} from "react-icons/ri";
+import {RiSendPlane2Fill, RiSunFill} from "react-icons/ri";
 
 function ChatBox(props) {
     const [input, setInput] = useState('');
@@ -82,7 +82,7 @@ return (
                         })
                         : 
                     <div>
-                        <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:130,margin:16}}/>
+                        <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
                         <h3>{app.name}</h3>
                         <br/>
                         <h6><RiSunFill/> Examples</h6>
@@ -98,7 +98,12 @@ return (
 
             <div className="message_bar">     
                     <Form onSubmit={ask}>
-                        <Form.Control className="maya-input" value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <div className="input-group">
+                            <Form.Control value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                            <Button variant="black" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                           </div>
+                        </Form.Group>
                     </Form>
             </div>
             </>

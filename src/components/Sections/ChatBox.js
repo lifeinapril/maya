@@ -37,11 +37,16 @@ function ChatBox(props) {
         startLoader(true);
         fetch(app.api+'ask',{
             method: 'POST',
-            data:{ _id: props.id, text: input }
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ _id: props.id, text: input })
             }).then(response => response.json())
             .then((Data) => {
                 setInput("");
                 startLoader(false);
+                console.log("Asked:");
+                console.log(Data);
                 if(Data.success){
                     setChat(Data.data);
                 }

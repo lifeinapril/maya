@@ -31,7 +31,7 @@ function Home() {
         return (
             <>
             <HeadBar icon={demo.icon} name={demo.name}/>
-            <Row className="bg-light">
+            <Row className="bg-silver">
             <Col md={3} sm={false} xs={false}>     
             </Col>
             <Col md={6} sm={12}>  

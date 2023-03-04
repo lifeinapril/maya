@@ -17,6 +17,7 @@
     padding: 5px !important;
     margin: 0px !important;
     position: fixed !important;
+    border-bottom: 1px solid #e2e2e2 !important;
  }
 
 
@@ -68,6 +69,7 @@
     border-top-left-radius: 11px !important;
     border-top-right-radius: 11px !important;
     float: left !important;
+    color: #161616 !important;
 }
 
 .tray {

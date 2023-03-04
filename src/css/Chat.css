@@ -58,7 +58,7 @@
     padding: 8px !important;
     overflow-x: hidden !important;
     position: relative !important;
-    background: linear-gradient(to bottom, #ffffff, #e2e2e28f) !important;
+    background: linear-gradient(to bottom, #ffffff 70%, #cdcdcd3b) !important;
   }
   
   

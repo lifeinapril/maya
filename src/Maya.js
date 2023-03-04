@@ -36,6 +36,7 @@ return (
      <BrowserRouter basename="/maya">
       <Routes>
       <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/:id' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
     </BrowserRouter>
   </>

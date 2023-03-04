@@ -1,31 +1,47 @@
 
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import demo from "../Config";
 import ChatBox from '../components/Sections/ChatBox';
 import HeadBar from "../components/Bars/HeadBar";
 
 function Home() {
-    const { param_id } = useParams();
     const [id, setID] = useState(null);
-    useEffect(() => {
-            if(param_id){
-                setID(param_id);
-            }else{
-                fetch(demo.api+'chat/new',{
-                    method: 'POST'
-                    })
-                    .then(response => response.json())
-                    .then((Data) => {
-                            if(Data.success){
-                                setID(Data.data);
-                            }
-                    })
-                    .catch((err) => {
-                       console.log(err.message);
-                    });
-            }
+    const [user, setUser] = useState(null);
+    const [ip, setIP] = useState(null);
+
+  useEffect(() => {
+            fetch('https://api.ipify.org/?format=json')
+            .then(response => response.json())
+            .then(response => {
+                        setIP(response.data.ip);
+                        const account = localStorage.getItem('account');
+                        if(account){
+                            setUser(account);
+                        }
+                        const chatid = localStorage.getItem('chatID');
+                        if(chatid){
+                            setID(chatid);
+                        }else{
+                            fetch(demo.api+'chat/new',{
+                                method: 'POST',
+                                body:{
+                                    ip:ip,
+                                    user:user._id
+                                }
+                                })
+                                .then(response => response.json())
+                                .then((Data) => {
+                                        if(Data.success){
+                                            setID(Data.data);
+                                            localStorage.setItem('chatID',Data.data);
+                                        }
+                                })
+                                .catch((err) => {
+                                console.log(err.message);
+                                });
+                        }
+            });
       }, []);
                   
         return (
@@ -35,7 +51,7 @@ function Home() {
             <Col md={3} sm={false} xs={false}>     
             </Col>
             <Col md={6} sm={12}>  
-                <ChatBox id={id} />
+                <ChatBox id={id} user={user}/>
             </Col> 
             <Col md={3} sm={false} xs={false}>  
             </Col>

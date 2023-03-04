@@ -14,7 +14,7 @@ function Home() {
             fetch('https://api.ipify.org/?format=json')
             .then(response => response.json())
             .then(response => {
-                        setIP(response.data.ip);
+                        setIP(response.ip);
                         const account = localStorage.getItem('account');
                         if(account){
                             setUser(account);
@@ -23,12 +23,15 @@ function Home() {
                         if(chatid){
                             setID(chatid);
                         }else{
+                            const body={
+                                ip:ip
+                            };
+                            if(user){
+                                body.user=user._id;
+                            }
                             fetch(demo.api+'chat/new',{
                                 method: 'POST',
-                                body:{
-                                    ip:ip,
-                                    user:user._id
-                                }
+                                body:body
                                 })
                                 .then(response => response.json())
                                 .then((Data) => {

@@ -14,16 +14,14 @@ class HeadBar extends React.Component{
  
 return (
 <>
-      <Navbar fixed="top" variant="light" expand="lg" className="headbar bg-light text-center justify-content-evenly">
-            <Navbar.Brand href="/" style={{textAlign: 'center'}}>
+      <Navbar fixed="top" variant="dark" expand="lg" className="headbar bg-dark text-center justify-content-evenly">
+            <a href="/" style={{marginTop:5}}>
                        <img
                         alt="logo"
                         src={this.props.icon}
                         style={{height:30,margin:"auto"}}
                       />
-                      <br/>
-                      <small>{this.props.name}</small>
-            </Navbar.Brand>
+            </a>
       </Navbar>
     </>
 

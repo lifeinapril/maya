@@ -17,6 +17,17 @@ body {
 }
 
 
+
+.bg-dark{
+  color:  #fff !important;
+   background: rgb(27, 27, 27); 
+  background: linear-gradient(144deg, rgb(10, 10, 10) 3%, rgba(2, 2, 2, 0.663) 57%, rgba(0, 0, 0, 0.727) 80%);
+}
+.bg-light{
+  color:  rgb(3, 3, 3) !important;
+   background:#fff !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

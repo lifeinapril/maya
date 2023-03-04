@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Button, Form,Container, Spinner } from "react-bootstrap";
+import { Button, Container, Form, Spinner } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
@@ -50,6 +50,8 @@ function ChatBox(props) {
                     if(Data.success){
                         setChat(Data.data);
                     }
+                    const objDiv = document.getElementById("chat_board");
+                        objDiv.scrollTop = objDiv.scrollHeight;
                 })
                 .catch((err) => {
                 console.log(err.message);
@@ -78,7 +80,9 @@ return (
                         {/* <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
                         <h3>{app.name}</h3>
                         <br/> */}
-                        <h6><RiSunFill/> Examples</h6>
+                        <div className="text-left">
+                            <h6><RiSunFill/> Examples</h6>
+                        </div>
                         <SmallBox text="`Is it possible to teach machines ethics, empathy or compassion?`" />
                         <br/>
                         <SmallBox text="`Name three things you really want to recommend to me`" />
@@ -87,23 +91,22 @@ return (
                     </div>
                     }
                     <div className="gap"></div>
-            </div>
-            <Container fluid className="text-center footer">     
+            </div>   
+            <div className="footer">     
                         <Form onSubmit={ask}>
                                 <div className="input-group">
                                 <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
                                 {isLoading ? (
-                                    <Spinner animation="grow" variant="orange" size={24} />
+                                    <Spinner animation="border" variant="danger" size="sm" style={{padding:20,borderRadius:100}} />
                                 ) : (
-                                    <Button disabled={isLoading || !input} variant="clear" type="submit" size='sm'><RiSendPlane2Fill/></Button>
+                                    <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'><RiSendPlane2Fill/></Button>
                                     )}
                             </div>
                         </Form>
                         <div className="text-center">
-                        <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
-                        <br/>
+                            <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
                         </div>
-            </Container>
+            </div>
             </>
 )
 }

@@ -49,21 +49,22 @@
   
   
   .chat_board{
-    height:100vh !important;
+    height:90vh !important;
     width: 100% !important;
     float: left !important;
     overflow-y: scroll !important;
-    display: block !important;
+    display: inline !important;
     padding-bottom: 50px !important;
     padding: 8px !important;
     overflow-x: hidden !important;
+    position: relative !important;
   }
   
   
   
   .gap{
     width:100%;
-    height: 100px;
+    height: 130px;
     display: block;
     float: left;
   }

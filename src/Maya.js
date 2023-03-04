@@ -9,12 +9,16 @@ import demo from "./Config";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './css/Splash.css';
-import {CSSTransition,TransitionGroup} from "react-transition-group";
+import {CSSTransition,TransitionGroup} from "react-transition-group"; 
+import ReactGA from 'react-ga';
+const TRACKING_ID = "UA-198127599-2"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 const Maya = function(){
   const [isLoading,setLoader] = useState(true);
   const [dark, setTheme] = useState(false);
-    useEffect(()=>{
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
       setTimeout(() =>{
         setLoader(false);
       },4000);

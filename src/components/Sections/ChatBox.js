@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Button, Container, Form, Spinner } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
@@ -111,7 +111,12 @@ return (
                             </div>
                         </Form>
                         <div className="text-center">
-                            <small>&copy; {new Date().getFullYear()} Copyright: DeenDevs</small>
+                            <small style={{fontSize:13}}>
+                                &copy; {new Date().getFullYear()} Copyright: DeenDevs. Designed for learning & development
+                            </small>
+                            <br/>
+                            <br/>
+                            <br/>
                         </div>
             </div>
             </>

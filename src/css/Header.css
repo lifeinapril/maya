@@ -63,7 +63,7 @@
 .footer{
     padding-bottom: 20px !important;
     padding: 5px !important;
-    background: linear-gradient(to bottom, #ffffff13, #ffffff) !important;
+    /* background: linear-gradient(to bottom, #ffffff13, #ffffff) !important; */
     width:100% !important;
     border-top-left-radius: 11px !important;
     border-top-right-radius: 11px !important;

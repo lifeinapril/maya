@@ -50,8 +50,8 @@ function ChatBox(props) {
                     if(Data.success){
                         setChat(Data.data);
                     }
-                    const objDiv = document.getElementById("chat_board");
-                        objDiv.scrollTop = objDiv.scrollHeight;
+                    const objDiv = document.getElementById("chat");
+                        objDiv.scrollTop = objDiv.scrollHeight+700;
                 })
                 .catch((err) => {
                 console.log(err.message);
@@ -63,7 +63,7 @@ function ChatBox(props) {
 
 return (
             <>
-            <div className="chat_board">
+            <div className="chat_board" id="chat">
                     <div className="gap"></div>   
                     {chat.conversations.length > 0 ?
                         chat.conversations.map(function(message,i){
@@ -96,11 +96,18 @@ return (
                         <Form onSubmit={ask}>
                                 <div className="input-group">
                                 <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                                {isLoading ? (
-                                    <Spinner animation="border" variant="danger" size="sm" style={{padding:20,borderRadius:100}} />
-                                ) : (
-                                    <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'><RiSendPlane2Fill/></Button>
-                                    )}
+                                
+                                <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'>
+                                    {isLoading ? (
+                                            <Spinner  as="span"
+                                            animation="border"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true" variant="danger" />
+                                    ) : (
+                                            <RiSendPlane2Fill/>
+                                        )}
+                                    </Button>
                             </div>
                         </Form>
                         <div className="text-center">

@@ -85,8 +85,7 @@
   }
   
   .maya-input{
-    border-top-left-radius: 8px !important;
-    border-bottom-left-radius: 8px !important;
+    border-radius: 8px !important;
   }
 .maya-input:focus{
   border: none !important;

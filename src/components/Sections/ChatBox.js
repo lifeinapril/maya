@@ -16,6 +16,11 @@ function ChatBox(props) {
     });
     
     useEffect(() => {
+        const objDiv = document.getElementById("chat");
+        objDiv.scrollTop = objDiv.scrollHeight+200;
+    },[chat])
+    
+        useEffect(() => {
         fetch(app.api+'chat/'+props.id,{
             method: 'GET'
             }).then(response => response.json())
@@ -40,7 +45,7 @@ function ChatBox(props) {
                 headers: {
                     'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify({ _id: props.id, text: input })
+                  body: JSON.stringify({ _id: chat._id, text: input })
                 }).then(response => response.json())
                 .then((Data) => {
                     setInput("");
@@ -50,8 +55,6 @@ function ChatBox(props) {
                     if(Data.success){
                         setChat(Data.data);
                     }
-                    const objDiv = document.getElementById("chat");
-                        objDiv.scrollTop = objDiv.scrollHeight+700;
                 })
                 .catch((err) => {
                 console.log(err.message);

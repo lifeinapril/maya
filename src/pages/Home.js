@@ -9,6 +9,7 @@ function Home() {
     const [id, setID] = useState(null);
     const [user, setUser] = useState(null);
     const [ip, setIP] = useState(null);
+    const [body,setBody] = useState({ip:ip});
 
   useEffect(() => {
             fetch('https://api.ipify.org/?format=json')
@@ -23,11 +24,8 @@ function Home() {
                         if(chatid){
                             setID(chatid);
                         }else{
-                            const body={
-                                ip:ip
-                            };
                             if(user){
-                                body.user=user._id;
+                                setBody({user:user._id,ip:ip})
                             }
                             fetch(demo.api+'chat/new',{
                                 method: 'POST',
@@ -54,7 +52,7 @@ function Home() {
             <Col md={3} sm={false} xs={false}>     
             </Col>
             <Col md={6} sm={12}>  
-                <ChatBox id={id} user={user}/>
+                <ChatBox id={id}/>
             </Col> 
             <Col md={3} sm={false} xs={false}>  
             </Col>

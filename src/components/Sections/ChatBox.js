@@ -98,7 +98,7 @@ return (
             <div className="footer">     
                         <Form onSubmit={ask}>
                                 <div className="input-group">
-                                <Form.Control className="maya-input" disabled={isLoading} value={input} onSubmit={ask} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
+                                <Form.Control className="maya-input" disabled={isLoading} value={input} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
                                 
                                 <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'>
                                     {isLoading ? (

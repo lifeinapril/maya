@@ -15,7 +15,7 @@ class HeadBar extends React.Component{
 return (
 <>
       <Navbar fixed="top" variant="light" expand="lg" className="headbar bg-light text-center justify-content-evenly">
-            <a href="/" style={{marginTop:5}}>
+            <a href="/maya" style={{marginTop:5}}>
                        <img
                         alt="logo"
                         src={this.props.icon}

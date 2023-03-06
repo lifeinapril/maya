@@ -6,21 +6,27 @@ import app from "../../Config";
 import "../../css/Chat.css";
 import SmallBox from "../Items/SmallBox";
 import {RiSendPlane2Fill, RiSunFill} from "react-icons/ri";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function ChatBox(props) {
     const [input, setInput] = useState('');
+    const [body, setBody] = useState();
     const [isLoading, startLoader] = useState(false);
-    const [chat, setChat] = useState({
-        _id:props.id,
-        conversations:[]
-    });
+    const [chat, setChat] = useState({conversations:[]});
     
     useEffect(() => {
         const objDiv = document.getElementById("chat");
         objDiv.scrollTop = objDiv.scrollHeight+200;
     },[chat])
     
+    useEffect(() => {
+        setBody({ _id: chat._id, text: input });
+    },[input]);
+
         useEffect(() => {
+            if(props.id){
         fetch(app.api+'chat/'+props.id,{
             method: 'GET'
             }).then(response => response.json())
@@ -32,28 +38,39 @@ function ChatBox(props) {
                 }
             })
             .catch((err) => {
-               console.log(err.message);
+               notify(err.message);
             });
+        }
     }, [props.id]);
+
+    const notify = (msg) => toast(msg);
 
     var ask = (e) => {
         e.preventDefault();
-        if(input){
+        if(!chat._id || !input){
+            console.log("no chat");
+            localStorage.removeItem("chatID");
+        }else{
             startLoader(true);
+            console.log("Body:");
+            console.log(body);
             fetch(app.api+'ask',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify({ _id: chat._id, text: input })
+                  body:JSON.stringify(body)
                 }).then(response => response.json())
                 .then((Data) => {
                     setInput("");
                     startLoader(false);
                     console.log("Asked:");
                     console.log(Data);
+                    notify(Data.message);
                     if(Data.success){
                         setChat(Data.data);
+                    }else{
+                        localStorage.removeItem("chatID");
                     }
                 })
                 .catch((err) => {
@@ -79,7 +96,7 @@ return (
                             }
                         })
                         : 
-                    <div>
+                    <div style={{margin:"auto",maxWidth:450}}>
                         {/* <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
                         <h3>{app.name}</h3>
                         <br/> */}
@@ -95,6 +112,7 @@ return (
                     }
                     <div className="gap"></div>
             </div>   
+            <ToastContainer />
             <div className="footer">     
                         <Form onSubmit={ask}>
                                 <div className="input-group">

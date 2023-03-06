@@ -5,6 +5,21 @@
     width: 100% !important;
     margin: 5px !important;
   }
+
+
+  pre {
+    background-color: #f4f4f4;
+    padding: 1em;
+  }
+  
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+  }
+  
+  .language-javascript {
+    color: #007bff;
+  }
   
   
   .message_a{
@@ -12,7 +27,7 @@
     float: right !important;
     width: auto !important;
     min-width: 100px !important;
-    max-width: 330px !important;
+    max-width: 600px !important;
     margin: 10px !important;
     padding: 6px !important;
     margin-right: 30px !important;
@@ -30,7 +45,7 @@
     float: left !important;
     width: auto !important;
     min-width: 100px !important;
-    max-width: 330px !important;
+    max-width: 600px !important;
     margin: 6px !important;
     padding: 6px !important;
     margin-left: 30px !important;

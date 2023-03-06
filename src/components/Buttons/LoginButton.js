@@ -4,7 +4,6 @@ import {
 Button
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import MayaIcon from '../Items/MayaIcon';
 
 
 class LoginButton extends React.Component{
@@ -19,7 +18,7 @@ class LoginButton extends React.Component{
 
 return (
             <>
-            <Button as={Link} to={this.state.path} variant="light" size='lg'>Login with Maya&nbsp;<MayaIcon/></Button>
+            <Button as={Link} to={this.state.path} variant="dark" size='lg'>Login / Register</Button>
             </>
 
 );

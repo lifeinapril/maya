@@ -20,6 +20,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "5.0.0",
     "react-spinners": "^0.11.0",
+    "react-toastify": "^9.1.1",
     "react-transition-group": "^2.7.0",
     "sass": "^1.50.1",
     "socket.io-client": "^4.6.1",

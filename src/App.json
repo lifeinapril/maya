@@ -1,7 +1,7 @@
 {
     "name":"maya",
     "slogan":"your cloud assistance to your favourite apps",
-    "api":"https://deendevs.com/api/",
+    "api":"http://localhost:8000/api/",
     "contacts":{
       "phone":"+234 906 529 1086",
       "email":"deendevelopers@gmail.com",

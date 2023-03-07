@@ -11,6 +11,7 @@ import './App.css';
 import './css/Splash.css';
 import {CSSTransition,TransitionGroup} from "react-transition-group"; 
 import ReactGA from 'react-ga';
+import Auth from './pages/Auth';
 const TRACKING_ID = "UA-198127599-2"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 
@@ -40,6 +41,7 @@ return (
      <BrowserRouter basename="/maya">
       <Routes>
       <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/auth/:token' element={<Auth/>}/>
       <Route path='/:id' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
       </Routes>
     </BrowserRouter>

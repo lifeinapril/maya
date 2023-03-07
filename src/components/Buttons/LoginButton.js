@@ -4,6 +4,7 @@ import {
 Button
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import app from "../../Config";
 
 
 class LoginButton extends React.Component{
@@ -18,7 +19,7 @@ class LoginButton extends React.Component{
 
 return (
             <>
-            <Button as={Link} to={this.state.path} variant="dark" size='lg'>Login / Register</Button>
+            <Button as={Link} to={app.authurl} variant="dark" size='lg'>Login / Register</Button>
             </>
 
 );

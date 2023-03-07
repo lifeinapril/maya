@@ -51,14 +51,14 @@ function Home() {
             <>
             <HeadBar icon={demo.icon} name={demo.name}/>
             <Row className="bg-silver">
-            <Col md={2} sm={false} xs={false} className="offcanvas-dark d-none d-sm-block">
+            {/* <Col md={2}  xs={2} id="sidebar-wrapper" sm={2} className="offcanvas-dark d-none d-sm-block">
                 <Settings/>
-            </Col>
-            <Col md={9} sm={11} style={{height:"100vh"}}>  
+            </Col> */}
+            <Col id="page-content-wrapper" md={12} sm={12} style={{height:"100vh"}}>  
                 <ChatBox id={id}/>
             </Col> 
-            <Col md={1} sm={false} xs={false}>  
-            </Col>
+            {/* <Col md={1} sm={false} xs={false}>  
+            </Col> */}
             </Row>
             </>
         );

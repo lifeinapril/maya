@@ -57,3 +57,30 @@ body {
 
 
 
+
+
+#sidebar-wrapper {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  overflow-y: auto;
+  background-color: #eee;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+#page-content-wrapper {
+  width: 100%;
+  padding-left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#sidebar-wrapper.active {
+  transform: translateX(0);
+}
+
+#page-content-wrapper.active {
+  padding-left: 250px;
+}

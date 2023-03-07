@@ -6,6 +6,7 @@ Navbar,Nav,Offcanvas
 import app from "../../Config";
 import LoginButton from "../Buttons/LoginButton";
 import Settings from '../Items/Settings';
+import { RiSettings2Line } from 'react-icons/ri';
 
 function HeadBar(props) {
   const [user , setUser ] = useState(null);
@@ -37,13 +38,15 @@ function HeadBar(props) {
 return (
 <>
       <Navbar fixed="top" variant="light" expand="lg" className="headbar bg-light justify-content-around">  
-      <Navbar.Toggle style={{border:"none",marginLeft:-20}} onClick={OpenSettings}/>
        <Navbar.Brand>
+       <RiSettings2Line style={{border:"none",marginLeft:-20}} onClick={OpenSettings}/>
+     &nbsp;
+     &nbsp;
                       <img 
                         alt="logo"
                         src={props.icon}
                         md={false}
-                        style={{height:30,marginLeft:-50}}
+                        style={{height:30,marginLeft:0}}
                       />
             </Navbar.Brand>
             <Nav></Nav>

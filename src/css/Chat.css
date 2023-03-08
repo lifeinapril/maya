@@ -64,7 +64,7 @@
   
   
   .chat_board{
-    height:75vh !important;
+    height:85vh !important;
     width: 100% !important;
     float: left !important;
     overflow-y: scroll !important;
@@ -74,6 +74,16 @@
     overflow-x: hidden !important;
     position: relative !important;
     background: linear-gradient(to bottom, #ffffff 70%, #cdcdcd3b) !important;
+  }
+  
+  
+  .center_convo{
+    height:auto;
+    width:100% !important;
+    max-width:800px !important;
+    display: block !important;
+    margin: auto !important;
+    position: relative !important;
   }
   
   

@@ -84,6 +84,7 @@ function ChatBox(props) {
 return (
             <>
             <div className="chat_board" id="chat">
+                <div className="center_convo">
                     <div className="gap"></div>   
                     {chat.conversations.length > 0 ?
                         chat.conversations.map(function(message,i){
@@ -111,9 +112,11 @@ return (
                     </div>
                     }
                     <div className="gap"></div>
+                </div>
             </div>   
             <ToastContainer />
             <div className="footer">     
+                <div className="center_convo">
                         <Form onSubmit={ask}>
                                 <div className="input-group">
                                 <Form.Control className="maya-input" disabled={isLoading} value={input} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
@@ -139,6 +142,7 @@ return (
                             <br/>
                             <br/>
                         </div>
+                </div>
             </div>
             </>
 )

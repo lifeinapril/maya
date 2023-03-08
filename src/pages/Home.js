@@ -1,11 +1,8 @@
 
 import React, { useState, useEffect } from "react";
-import { Button, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import demo from "../Config";
 import ChatBox from '../components/Sections/ChatBox';
 import HeadBar from "../components/Bars/HeadBar";
-import { RiMoonFill,RiChatDeleteFill } from "react-icons/ri";
-import Settings from "../components/Items/Settings";
 
 function Home() {
     const [id, setID] = useState(null);
@@ -50,16 +47,7 @@ function Home() {
         return (
             <>
             <HeadBar icon={demo.icon} name={demo.name}/>
-            <Row className="bg-silver">
-            {/* <Col md={2}  xs={2} id="sidebar-wrapper" sm={2} className="offcanvas-dark d-none d-sm-block">
-                <Settings/>
-            </Col> */}
-            <Col id="page-content-wrapper" md={12} sm={12} style={{height:"100vh"}}>  
                 <ChatBox id={id}/>
-            </Col> 
-            {/* <Col md={1} sm={false} xs={false}>  
-            </Col> */}
-            </Row>
             </>
         );
 

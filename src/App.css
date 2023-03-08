@@ -4,7 +4,7 @@
 
 body {
    font-family: 'Comfortaa';
-  background: linear-gradient(144deg, rgb(10, 10, 10) 3%, rgba(2, 2, 2, 0.663) 57%, rgba(0, 0, 0, 0.727) 80%);
+   background-color: #f4f4f4 !important;
 }
 
 .App {

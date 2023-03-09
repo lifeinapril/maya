@@ -9,7 +9,7 @@ function Home() {
     const [user, setUser] = useState(null);
     const [ip, setIP] = useState(null);
     const [body,setBody] = useState({ip:ip});
-    const [dark_mode,changeMode] = useState(false);
+    const [dark_mode,changeMode] = useState(true);
 
 
     var Mode=function(){

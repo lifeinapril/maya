@@ -67,7 +67,7 @@ return (
       </Navbar>
 
        <Offcanvas variant={props.dark ? "dark":"light"} className={props.dark ? "offcanvas-dark":"offcanvas-light"} show={show} onHide={CloseSettings} placement="start">
-          <Offcanvas.Header variant={props.dark ? "dark":"light"} closeButton>
+          <Offcanvas.Header closeButton>
           </Offcanvas.Header>
           <Offcanvas.Body>
               <Settings changeMode={changeMode} clearChat={props.clearChat} dark={props.dark}/>

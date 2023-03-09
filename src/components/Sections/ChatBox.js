@@ -97,18 +97,18 @@ return (
                             }
                         })
                         : 
-                    <div style={{margin:"auto",maxWidth:450}}>
+                    <div className={props.dark ? "bg-dark":"bg-light"} style={{margin:"auto",maxWidth:450,padding:10}}>
                         {/* <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
                         <h3>{app.name}</h3>
                         <br/> */}
                         <div className="text-left">
                             <h6><RiSunFill/> Examples</h6>
                         </div>
-                        <SmallBox text="`Is it possible to teach machines ethics, empathy or compassion?`" />
+                        <SmallBox dark={props.dark} text="`Is it possible to teach machines ethics, empathy or compassion?`" />
                         <br/>
-                        <SmallBox text="`Name three things you really want to recommend to me`" />
+                        <SmallBox dark={props.dark} text="`Name three things you really want to recommend to me`" />
                         <br/>
-                        <SmallBox text="`Who is the fastest man alive?`" />
+                        <SmallBox dark={props.dark} text="`Who is the fastest man alive?`" />
                     </div>
                     }
                     <div className="gap"></div>

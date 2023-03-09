@@ -70,7 +70,7 @@ return (
           <Offcanvas.Header variant={props.dark ? "dark":"light"} closeButton>
           </Offcanvas.Header>
           <Offcanvas.Body>
-              <Settings changeMode={changeMode} dark={props.dark}/>
+              <Settings changeMode={changeMode} clearChat={props.clearChat} dark={props.dark}/>
           </Offcanvas.Body>
       </Offcanvas>
       

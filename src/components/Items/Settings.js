@@ -5,15 +5,19 @@ import { RiMoonFill,RiSunFill, RiChatDeleteFill } from "react-icons/ri";
 
 function Settings(props) {
   
-          var Mode=function(){
-            props.changeMode();
-          }
- 
+  var Mode=function(){
+    props.changeMode();
+  }
+
+  var ClearConvo=function(){
+    props.clearChat();
+  }
+
         return (
             <>
               <ListGroup as="ol">
                 <small style={{margin:10}}><b>Settings</b></small>
-                <ListGroup.Item as="li" className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>
+                <ListGroup.Item as="li" onClick={ClearConvo} className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>
                   <small> <RiChatDeleteFill/>&nbsp;&nbsp;&nbsp;Clear conversation </small> 
                 </ListGroup.Item>
                 <ListGroup.Item as="li" onClick={Mode} className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>

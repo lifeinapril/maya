@@ -16,6 +16,10 @@ function Home() {
         changeMode(!dark_mode);
         localStorage.setItem('mood',dark_mode);
     }
+    var clearChat=function(){
+        setID(null);
+        localStorage.removeItem('chatID');
+    }
    
     useEffect(() => {
                 changeMode(localStorage.getItem('mood'));
@@ -53,11 +57,11 @@ function Home() {
                                 });
                         }
             });
-      }, []);
+      }, [id]);
                   
         return (
             <>
-            <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} changeMode={Mode}/>
+            <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} changeMode={Mode} clearChat={clearChat}/>
                 <ChatBox id={id} dark={dark_mode}/>
             </>
         );

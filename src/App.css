@@ -16,6 +16,9 @@ body {
   pointer-events: none;
 }
 
+.list-group-item{
+  cursor: pointer;
+}
 
 
 .bg-dark{

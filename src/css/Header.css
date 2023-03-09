@@ -17,7 +17,7 @@
     padding: 5px !important;
     margin: 0px !important;
     position: fixed !important;
-    border-bottom: 1px solid #e2e2e2 !important;
+    border-bottom: 1px solid #0000003f !important;
  }
 
 
@@ -64,12 +64,8 @@
 .footer{
     padding-bottom: 20px !important;
     padding: 5px !important;
-    /* background: linear-gradient(to bottom, #ffffff13, #ffffff) !important; */
     width:100% !important;
-    border-top-left-radius: 11px !important;
-    border-top-right-radius: 11px !important;
     float: left !important;
-    color: #161616 !important;
 }
 
 .tray {

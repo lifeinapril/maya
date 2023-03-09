@@ -83,7 +83,7 @@ function ChatBox(props) {
 
 return (
             <>
-            <div className="chat_board" id="chat">
+            <div className={"chat_board "+(props.dark ? "grade-dark":"grade-white")} id="chat">
                 <div className="center_convo">
                     <div className="gap"></div>   
                     {chat.conversations.length > 0 ?
@@ -115,21 +115,20 @@ return (
                 </div>
             </div>   
             <ToastContainer />
-            <div className="footer">     
+            <div className={"footer "+(props.dark ? "bg-dark":"bg-light")}>     
                 <div className="center_convo">
                         <Form onSubmit={ask}>
                                 <div className="input-group">
-                                <Form.Control className="maya-input" disabled={isLoading} value={input} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                                
+                                <Form.Control className={"maya-input "+(props.dark ? "bg-grey":"bg-light")} disabled={isLoading} value={input} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
                                 <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'>
                                     {isLoading ? (
                                             <Spinner  as="span"
                                             animation="border"
                                             size="sm"
                                             role="status"
-                                            aria-hidden="true" variant="danger" />
+                                            aria-hidden="true" variant={props.dark ? "light":"danger"} />
                                     ) : (
-                                            <RiSendPlane2Fill/>
+                                            <RiSendPlane2Fill color={props.dark ? "#fff":"#000"}/>
                                         )}
                                     </Button>
                             </div>

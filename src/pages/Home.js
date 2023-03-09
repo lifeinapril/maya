@@ -9,6 +9,17 @@ function Home() {
     const [user, setUser] = useState(null);
     const [ip, setIP] = useState(null);
     const [body,setBody] = useState({ip:ip});
+    const [dark_mode,changeMode] = useState(false);
+
+
+    var Mode=function(){
+        changeMode(!dark_mode);
+        localStorage.setItem('mood',dark_mode);
+    }
+   
+    useEffect(() => {
+                changeMode(localStorage.getItem('mood'));
+    }, []);
 
   useEffect(() => {
             fetch('https://api.ipify.org/?format=json')
@@ -46,8 +57,8 @@ function Home() {
                   
         return (
             <>
-            <HeadBar icon={demo.icon} name={demo.name}/>
-                <ChatBox id={id}/>
+            <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} changeMode={Mode}/>
+                <ChatBox id={id} dark={dark_mode}/>
             </>
         );
 

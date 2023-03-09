@@ -34,10 +34,15 @@ function HeadBar(props) {
                       });
                 }
 }, []);
+
+
+var changeMode=function(){
+  props.changeMode();
+}
  
 return (
 <>
-      <Navbar fixed="top" variant="light" expand="lg" className="headbar bg-light justify-content-around">  
+      <Navbar fixed="top" variant={props.dark ? "dark":"light"} expand="lg" className={"headbar justify-content-around "+(props.dark ? " bg-dark":" bg-light")}>  
        <Navbar.Brand>
        <RiSettings2Line style={{border:"none",marginLeft:-20}} onClick={OpenSettings}/>
      &nbsp;
@@ -60,10 +65,13 @@ return (
             </Nav>
             
       </Navbar>
-      <Offcanvas className="offcanvas-dark" show={show} onHide={CloseSettings} placement="start">
-                <Offcanvas.Body>
-                  <Settings/>
-                  </Offcanvas.Body>
+
+       <Offcanvas variant={props.dark ? "dark":"light"} className={props.dark ? "offcanvas-dark":"offcanvas-light"} show={show} onHide={CloseSettings} placement="start">
+          <Offcanvas.Header variant={props.dark ? "dark":"light"} closeButton>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+              <Settings changeMode={changeMode} dark={props.dark}/>
+          </Offcanvas.Body>
       </Offcanvas>
       
     </>

@@ -5,8 +5,8 @@ function Auth() {
     const {token} = useParams();
     const navigate = useNavigate();
     useEffect(() => {
-      localStorage.setItem('account',token);
-                navigate("/maya");
+                localStorage.setItem('account',token);
+                navigate("/");
         }, []);
 }
 export default Auth;

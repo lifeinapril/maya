@@ -26,14 +26,17 @@ const Maya = function(){
     const account = localStorage.getItem('account');
     if(account){
         fetch(demo.api+'user/info',{
-          method: 'GET',
+          method: 'POST',
           headers: {
               'Content-Type': 'application/json',
               'token': account,
               'appid': demo.token
-            }
+            },
+            body: JSON.stringify({ token: account })
           }).then(response => response.json())
           .then((Data) => {
+            console.log("user:");
+            console.log(Data);
               if(Data.success){
                 setUser(Data.data);
               }else{

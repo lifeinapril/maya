@@ -8,13 +8,10 @@ import Settings from '../Items/Settings';
 import { RiSettings2Line } from 'react-icons/ri';
 
 function HeadBar(props) {
-  const [user , setUser ] = useState(null);
   const [show , showSettings ] = useState(false);
-
   const CloseSettings = () => showSettings(false);
   const OpenSettings= () => showSettings(true);
 
-setUser(props.user);
 var changeMode=function(){
   props.changeMode();
 }
@@ -29,16 +26,15 @@ return (
                       <img 
                         alt="logo"
                         src={props.icon}
-                        md={false}
                         style={{height:30,marginLeft:0}}
                       />
             </Navbar.Brand>
             <Nav></Nav>
             <Nav></Nav>
             <Nav id="menu" className="justify-content-end">
-                {user ? 
+                {props.user ? 
                 <>
-                  <h5>Hello <b>{user.user_name}</b></h5>
+                  <small>Hello <b>{props.user.first_name}</b></small>
                 </>:
                 <LoginButton style={{float:"right"}}/>}
             </Nav>

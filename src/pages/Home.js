@@ -21,11 +21,9 @@ function Home(props) {
         localStorage.removeItem('chatID');
     }
    
-    useEffect(() => {
-                changeMode(localStorage.getItem('mood'));
-    }, []);
 
   useEffect(() => {
+            changeMode(localStorage.getItem('mood'));
             fetch('https://api.ipify.org/?format=json')
             .then(response => response.json())
             .then(response => {
@@ -57,7 +55,7 @@ function Home(props) {
                                 });
                         }
             });
-      }, [id]);
+      }, []);
                   
         return (
             <>

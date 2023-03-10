@@ -1,9 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import "../../css/Header.css";
 import {
 Navbar,Nav,Offcanvas
 } from 'react-bootstrap';
-import app from "../../Config";
 import LoginButton from "../Buttons/LoginButton";
 import Settings from '../Items/Settings';
 import { RiSettings2Line } from 'react-icons/ri';
@@ -14,28 +13,8 @@ function HeadBar(props) {
 
   const CloseSettings = () => showSettings(false);
   const OpenSettings= () => showSettings(true);
-  useEffect(() => {
-                const account = localStorage.getItem('account');
-                if(account){
-                    fetch(app.api+'user/info',{
-                      method: 'GET',
-                      headers: {
-                          'Content-Type': 'application/json',
-                          'token': account
-                        }
-                      }).then(response => response.json())
-                      .then((Data) => {
-                          if(Data.success){
-                            setUser(Data.data);
-                          }
-                      })
-                      .catch((err) => {
-                      console.log(err.message);
-                      });
-                }
-}, []);
 
-
+setUser(props.user);
 var changeMode=function(){
   props.changeMode();
 }

@@ -16,13 +16,34 @@ const TRACKING_ID = "UA-198127599-2"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 
 const Maya = function(){
+  const [user , setUser ] = useState(null);
   const [isLoading,setLoader] = useState(true);
-  const [dark, setTheme] = useState(false);
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
-      setTimeout(() =>{
-        setLoader(false);
-      },4000);
+    setTimeout(() =>{
+      setLoader(false);
+    },4000);
+    const account = localStorage.getItem('account');
+    if(account){
+        fetch(demo.api+'user/info',{
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'token': account,
+              'appid': demo.token
+            }
+          }).then(response => response.json())
+          .then((Data) => {
+              if(Data.success){
+                setUser(Data.data);
+              }else{
+                setUser(null);
+              }
+          })
+          .catch((err) => {
+          console.log(err.message);
+          });
+    }
     }, []);
 
 return (
@@ -32,7 +53,7 @@ return (
   <TransitionGroup component={null}> 
   <CSSTransition classNames={"splash"} appear={isLoading} in={isLoading} timeout={600}>
        <>
-          <Splash dark={dark} />
+          <Splash dark={true} />
        </> 
   </CSSTransition>
   </TransitionGroup>
@@ -40,9 +61,10 @@ return (
      <>
      <BrowserRouter basename="/maya">
       <Routes>
-      <Route path='/' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/auth' element={<Auth/>}/>
       <Route path='/auth/:token' element={<Auth/>}/>
-      <Route path='/:id' element={<Home name={demo.name} setTheme={setTheme} icon={demo.icon} dark={dark}/>}/>
+      <Route path='/' element={<Home user={user}/>}/>
+      <Route path='/:id' element={<Home user={user}/>}/>
       </Routes>
     </BrowserRouter>
   </>

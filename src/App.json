@@ -3,6 +3,7 @@
     "slogan":"your cloud assistance to your favourite apps",
     "api":"https://deendevs.com/api/",
     "authurl":"https://deendevs.com/auth?callback=https://deendevs.com/maya/auth/",
+    "token":"",
     "contacts":{
       "phone":"+234 906 529 1086",
       "email":"deendevelopers@gmail.com",

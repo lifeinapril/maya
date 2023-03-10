@@ -4,7 +4,7 @@ import demo from "../Config";
 import ChatBox from '../components/Sections/ChatBox';
 import HeadBar from "../components/Bars/HeadBar";
 
-function Home() {
+function Home(props) {
     const [id, setID] = useState(null);
     const [user, setUser] = useState(null);
     const [ip, setIP] = useState(null);
@@ -61,8 +61,8 @@ function Home() {
                   
         return (
             <>
-            <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} changeMode={Mode} clearChat={clearChat}/>
-                <ChatBox id={id} dark={dark_mode}/>
+                <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} user={props.user} changeMode={Mode} clearChat={clearChat}/>
+                <ChatBox id={id} dark={dark_mode} user={props.user}/>
             </>
         );
 

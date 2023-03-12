@@ -5,7 +5,6 @@ import app from "../../Config";
 import "../../css/Chat.css";
 import SmallBox from "../Items/SmallBox";
 import { RiSunFill} from "react-icons/ri";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Text from "../Inputs/Text";
 import Mic from "../Inputs/Mic";
@@ -13,13 +12,12 @@ import Mic from "../Inputs/Mic";
 
 function ChatBox(props) {
     const [isLoading, startLoader] = useState(false);
-    const [chat, loadChat] = useState({conversations:[]});
     
     
     useEffect(() => {
         const objDiv = document.getElementById("chat");
         objDiv.scrollTop = objDiv.scrollHeight+200;
-    },[isLoading])
+    },[props.messages])
 
     
 
@@ -49,24 +47,8 @@ function ChatBox(props) {
        });
      }
 
-        useEffect(() => {
-            if(props.id){
-        fetch(app.api+'chat/'+props.id,{
-            method: 'GET'
-            }).then(response => response.json())
-            .then((Data) => {
-                if(Data.success){
-                    loadChat(Data.data);
-                }
-            })
-            .catch((err) => {
-               notify(err.message);
-            });
-        }
-    }, [props.id]);
 
-    const notify = (msg) => toast(msg);
-
+     
     function ask(id,question){
         if(!id){
             console.log("no chat");
@@ -84,11 +66,10 @@ function ChatBox(props) {
                 }).then(response => response.json())
                 .then((Data) => {
                     startLoader(false);
-                    notify(Data.message);
                     if(Data.success){
-                        loadChat(Data.data);
-                            if(props.mode==="mic"){
-                                Speak(Data.data.conversations[Data.data.conversations.length-1].output);
+                        props.loadChat(Data.data);
+                        if(props.speechMode){
+                            Speak(Data.data.conversations[Data.data.conversations.length-1].output);
                         }
                     }else{
                         localStorage.removeItem("chatID");
@@ -107,8 +88,8 @@ return (
             <div className={"chat_board "+(props.dark ? "grade-dark":"grade-white")} id="chat">
                 <div className="center_convo">
                     <div className="gap"></div>   
-                    {chat.conversations.length > 0 ?
-                        chat.conversations.map(function(message,i){
+                    {props.messages.length > 0 ?
+                        props.messages.map(function(message,i){
                             if(message){
                                 return(
                                     <Message key={i} input={message.input} output={message.output}/>
@@ -135,11 +116,10 @@ return (
                     <div className="gap"></div>
                 </div>
             </div>   
-            <ToastContainer />
             <div className={"footer "+(props.dark ? "bg-dark":"bg-light")}>     
                 <div className="center_convo">
-                {props.mode==="text" && (<Text action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
-                 {props.mode==="mic" && (<Mic action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
+                {props.inputMode==="text" && (<Text action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
+                 {props.inputMode==="mic" && (<Mic action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
                         <div className="text-center">
                             <small style={{fontSize:13}}>
                                 &copy; {new Date().getFullYear()} Copyright: DeenDevs. Designed for learning & development

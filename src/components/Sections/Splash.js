@@ -34,7 +34,7 @@ class Splash extends React.Component {
                     className="appicon"
                     />
                     <br/>
-                    <h6 className='text-center'>Give me a sec...</h6>
+                    <small className='text-center'>Loading conversation, give me a sec...</small>
 
                     </div>
                 </div>

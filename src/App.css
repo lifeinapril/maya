@@ -87,3 +87,10 @@ body {
 #page-content-wrapper.active {
   padding-left: 250px;
 }
+
+
+
+.offcanvas-header .btn-close{
+  background-color:#888888ab !important;
+  opacity: 1;
+}

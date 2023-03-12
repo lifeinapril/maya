@@ -1,26 +1,18 @@
 import React,{useState} from 'react';
 import "../../css/Header.css";
 import {
-Navbar,Nav,Offcanvas
+Navbar,Nav
 } from 'react-bootstrap';
 import LoginButton from "../Buttons/LoginButton";
-import Settings from '../Items/Settings';
-import { RiSettings2Line } from 'react-icons/ri';
+import { RiSettings4Fill } from 'react-icons/ri';
 
 function HeadBar(props) {
-  const [show , showSettings ] = useState(false);
-  const CloseSettings = () => showSettings(false);
-  const OpenSettings= () => showSettings(true);
-
-var changeMode=function(){
-  props.changeMode();
-}
- 
+  const OpenSettings= () => props.openSettings(true);
 return (
 <>
       <Navbar fixed="top" variant={props.dark ? "dark":"light"} expand="lg" className={"headbar justify-content-around "+(props.dark ? " bg-dark":" bg-light")}>  
        <Navbar.Brand>
-       <RiSettings2Line style={{border:"none",marginLeft:-20}} onClick={OpenSettings}/>
+       <RiSettings4Fill style={{border:"none",marginLeft:-20,cursor:"pointer"}} onClick={OpenSettings}/>
      &nbsp;
      &nbsp;
                       <img 
@@ -41,13 +33,6 @@ return (
             
       </Navbar>
 
-       <Offcanvas variant={props.dark ? "dark":"light"} className={props.dark ? "offcanvas-dark":"offcanvas-light"} show={show} onHide={CloseSettings} placement="start">
-          <Offcanvas.Header closeButton>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-              <Settings changeMode={changeMode} clearChat={props.clearChat} dark={props.dark}/>
-          </Offcanvas.Body>
-      </Offcanvas>
       
     </>
 

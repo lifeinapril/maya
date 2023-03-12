@@ -11,6 +11,7 @@ function Text(props) {
     function ask(e){
         e.preventDefault();
         props.action(props.id,input);
+        setInput("");
     }
     return (
     <Form onSubmit={ask}>

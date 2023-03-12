@@ -73,14 +73,21 @@ function Mic(props) {
           animation="border"
           size="sm"
           role="status"
-          aria-hidden="true" variant={props.dark ? "light":"danger"} />)
-        }
-         {(isListening && !props.loading) ? "Listening........." : 
-         
-         <Button variant="orange" className="btn-small" onClick={start}>
-         Start listening
-       </Button>
-       }
+          aria-hidden="true" variant={props.dark ? "light":"danger"} />)}
+         {!props.loading &&
+          (<>{
+            isListening ?
+            <> <Spinner  as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true" variant={props.dark ? "light":"danger"} />
+            <br/><br/>
+            <small>Listening...</small></>: 
+            <Button disabled={transcript} variant="orange" className="btn-small" onClick={start}>
+            Start listening
+            </Button>
+          }</>)}
        <br/>
        <br/>
        {(isListening && !props.loading) && (
@@ -88,9 +95,6 @@ function Mic(props) {
          <Button variant="red" className="btn-small" onClick={() => stop()}>
            Stop
          </Button>
-          <Button variant="dark" disabled={!transcript} className="btn-small" onClick={() => reset}>
-            Reset
-          </Button>
         </>
        )}
         </div>

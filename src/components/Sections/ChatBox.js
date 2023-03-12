@@ -17,8 +17,12 @@ function ChatBox(props) {
     
     
     useEffect(() => {
-        const objDiv = document.getElementById("chat");
-        objDiv.scrollTop = objDiv.scrollHeight+200;
+        if(props.messages){
+            if(props.messages.length > 0){
+            const objDiv = document.getElementById("chat");
+            objDiv.scrollTop = objDiv.scrollHeight+200;
+        }
+    }
     },[props.messages])
 
     

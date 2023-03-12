@@ -96,8 +96,8 @@ var changeSpeech=function(value){
   .then(response => response.json())
   .then(response => {
               setIP(response.ip);
-                if(user){
-                  fetch(demo.api+'user/chat/'+user._id,{
+                if(account){
+                  fetch(demo.api+'user/chat/'+account,{
                     method: 'GET'
                     })
                     .then(response => response.json())

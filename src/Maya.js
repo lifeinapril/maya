@@ -90,7 +90,11 @@ var changeSpeech=function(value){
                         console.log(err.message);
                         });
                       fetch(demo.api+'user/chat/'+token,{
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'token': token
+                          }
                         })
                         .then(response => response.json())
                         .then((Data) => {

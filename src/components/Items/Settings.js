@@ -39,7 +39,7 @@ function Settings(props) {
                 </Form.Select>
                 <br/>
 
-                <Form.Label><small>Speak</small></Form.Label>
+                <Form.Label><small>Speech Synthesis</small></Form.Label>
                  <Form.Select className={props.dark ? "bg-grey":"bg-light"}  value={props.speechMode} onChange={e => ChangeSpeech(e.target.value)}>
                     <option value={true}>Enabled</option>
                     <option value={false}>Disabled</option>

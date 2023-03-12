@@ -90,13 +90,13 @@ function Mic(props) {
           }</>)}
        <br/>
        <br/>
-       {(isListening && !props.loading) && (
+       {/* {(isListening && !props.loading) && (
         <>
          <Button variant="red" className="btn-small" onClick={() => stop()}>
            Stop
          </Button>
         </>
-       )}
+       )} */}
         </div>
     </div>
   );

@@ -8,6 +8,8 @@ import { RiSunFill} from "react-icons/ri";
 import 'react-toastify/dist/ReactToastify.css';
 import Text from "../Inputs/Text";
 import Mic from "../Inputs/Mic";
+import Screen from "../Items/Screen";
+import image1 from "../../images/art.jpeg";
 
 
 function ChatBox(props) {
@@ -71,8 +73,6 @@ function ChatBox(props) {
                         if(props.speechMode){
                             Speak(Data.data.conversations[Data.data.conversations.length-1].output);
                         }
-                    }else{
-                        localStorage.removeItem("chatID");
                     }
                 })
                 .catch((err) => {
@@ -99,12 +99,10 @@ return (
                             }
                         })
                         : 
-                    <div className={props.dark ? "bg-dark":"bg-light"} style={{margin:"auto",maxWidth:450,padding:10}}>
-                        {/* <img alt="logo" src={app.icon}  className={isLoading ? "appicon":null} style={{height:50,margin:16}}/>
-                        <h3>{app.name}</h3>
-                        <br/> */}
-                        <div className="text-left">
-                            <h6><RiSunFill/> Examples</h6>
+                    <div  style={{margin:"auto",maxWidth:450,padding:10,marginTop:80}}>
+                          {!props.user && (<Screen title="Maya" url={app.authurl} body="Need an assistant that understands your needs? From answering questions to performing tasks. Start a conversation with maya today." image={image1} icon={app.icon}/>)}
+                      <div className="text-left">
+                            <h6 className={props.dark ? "light":"dark"}><RiSunFill/> Examples</h6>
                         </div>
                         <SmallBox dark={props.dark} text="`Is it possible to teach machines ethics, empathy or compassion?`" />
                         <br/>
@@ -118,6 +116,7 @@ return (
             </div>   
             <div className={"footer "+(props.dark ? "bg-dark":"bg-light")}>     
                 <div className="center_convo">
+                    <br/>
                 {props.inputMode==="text" && (<Text action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
                  {props.inputMode==="mic" && (<Mic action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
                         <div className="text-center">

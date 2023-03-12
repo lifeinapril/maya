@@ -1,0 +1,33 @@
+.screen{
+    padding:0px !important;
+    float: left !important;
+    background-color: black !important;
+    text-align: center !important;
+    height: 220px !important;
+    display: block !important;
+    position: relative;
+    width: 100% !important;
+    overflow: hidden !important;
+    margin-bottom: 30px !important;
+}
+
+.screen .card-img{
+    border: none !important;
+    opacity: 0.4 !important;
+}
+
+.screen .card-title{
+    color:#fff !important;
+}
+
+
+.screen p{
+    width:350px !important;
+    margin: auto;
+    margin-bottom: 20px !important;
+}
+
+.screen small,.screen a{
+    color:#fff !important;
+    font-size: 12px !important;
+}

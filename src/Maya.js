@@ -20,9 +20,9 @@ import Auth from './pages/Auth';
 const TRACKING_ID = "UA-198127599-2"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 const Maya = function(){
-  const [user , setUser ] = useState(null);
+  const [user , setUser ] = useState({});
   const [isLoading,setLoader] = useState(true);
-  const [settings,changeSettings] = useState({dark:true,mode:"mic",speak:true});
+  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false});
   const [show , showSettings ] = useState(false);
   const [chatid, setID] = useState();
   const [ip, setIP] = useState(null);

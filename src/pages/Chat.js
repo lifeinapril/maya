@@ -31,7 +31,7 @@ function Chat(props) {
     return (
         <>
                 <ToastContainer />
-                <ChatBox messages={chat.conversations} id={props.id} loadChat={loadchat} dark={props.darkMode} user={props.user} inputMode={props.inputMode}  speechMode={props.speechMode}/>
+                <ChatBox messages={chat.conversations} user={props.user} id={props.id} loadChat={loadchat} dark={props.darkMode} inputMode={props.inputMode}  speechMode={props.speechMode}/>
         </>
     );
 

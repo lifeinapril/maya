@@ -10,7 +10,7 @@ function Text(props) {
     const [input, setInput] = useState('');
     function ask(e){
         e.preventDefault();
-        props.action(props.id,input);
+        props.action(input);
         setInput("");
     }
     return (

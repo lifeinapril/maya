@@ -26,7 +26,6 @@ const Maya = function(){
   const [show , showSettings ] = useState(false);
   const [chatid, setID] = useState();
   const [ip, setIP] = useState(null);
-  const [body,setBody] = useState({ip:ip});
 
   const CloseSettings = () => showSettings(false);
   const openSettings = () => showSettings(true);
@@ -49,7 +48,6 @@ var clearChat=function(){
   setLoader(true);
   localStorage.removeItem('chatID');
   CloseSettings();
-  setID();
 }
 
 
@@ -62,78 +60,94 @@ var changeSpeech=function(value){
 
 
   useEffect(() => {
-      setLoader(false);
-  },[chatid]);
-
-
-  useEffect(() => {
-
     ReactGA.pageview(window.location.pathname + window.location.search);
-    const account = localStorage.getItem('account');
-    if(account!=null){
-        fetch(demo.api+'user/info',{
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'token': account,
-              'appid': demo.token
-            },
-            body: JSON.stringify({ token: account })
-          }).then(response => response.json())
-          .then((Data) => {
-              if(Data.success){
-                setUser(Data.data);
-              }else{
-                setUser(null);
-              }
-          })
-          .catch((err) => {
-          console.log(err.message);
-          });
-    }
-
-  fetch('https://api.ipify.org/?format=json')
-  .then(response => response.json())
-  .then(response => {
-              setIP(response.ip);
-                if(account){
-                  fetch(demo.api+'user/chat/'+account,{
-                    method: 'GET'
-                    })
-                    .then(response => response.json())
-                    .then((Data) => {
+    const token = localStorage.getItem('account');
+    fetch('https://api.ipify.org/?format=json')
+    .then(response => response.json())
+    .then(response => {
+      setIP(response.ip);
+    }).catch((err)=>{
+      console.log(err.message);
+    });
+                  if(token){
+                      fetch(demo.api+'user/info',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'token': token
+                          },
+                          body: JSON.stringify({ token: token })
+                        }).then(response => response.json())
+                        .then((Data) => {
+                          setLoader(false);
                             if(Data.success){
-                                setID(Data.data);
-                                localStorage.setItem('chatID',Data.data);
+                              setUser(Data.data);
+                            }else{
+                              setUser(null);
                             }
-                    })
-              }else{
-                if(localStorage.getItem('chatID')){
-                      setID(localStorage.getItem('chatID'));
+                        })
+                        .catch((err) => {
+                        console.log(err.message);
+                        });
+                      fetch(demo.api+'user/chat/'+token,{
+                        method: 'GET'
+                        })
+                        .then(response => response.json())
+                        .then((Data) => {
+                          console.log("foundddddd");
+                                if(Data.data){
+                                    setID(Data.data);
+                                    localStorage.setItem('chatID',Data.data);
+                                }else{
+                                    console.log("creating new chat!");
+                                    setLoader(true);
+                                    fetch(demo.api+'chat/new',{
+                                      method: 'POST',
+                                      body:JSON.stringify({user:token})
+                                      })
+                                      .then(response => response.json())
+                                      .then((Data) => {
+                                        setLoader(false);
+                                        console.log(Data);
+                                              if(Data.success){
+                                                  setID(Data.data);
+                                                  localStorage.setItem('chatID',Data.data);
+                                              }
+                                      })
+                                      .catch((err) => {
+                                      console.log(err.message);
+                                      });
+                                }
+                        })
                   }else{
-                  setBody({user:account,ip:ip})
-                  fetch(demo.api+'chat/new',{
-                      method: 'POST',
-                      body:body
-                      })
-                      .then(response => response.json())
-                      .then((Data) => {
-                              if(Data.success){
-                                  setID(Data.data);
-                                  localStorage.setItem('chatID',Data.data);
-                              }
-                      })
-                      .catch((err) => {
-                      console.log(err.message);
-                      });
-                    }
-              }
-  }).catch((err)=>{
-    console.log(err.message);
-  });
+                    console.log("no account");
+                    if(localStorage.getItem('chatID')){
+                        setID(localStorage.getItem('chatID'));
+                    }else{
+                      console.log("creating new chat!");
+                      setLoader(true);
+                      fetch(demo.api+'chat/new',{
+                        method: 'POST',
+                        body:JSON.stringify({ip:ip})
+                        })
+                        .then(response => response.json())
+                        .then((Data) => {
+                          setLoader(false);
+                          console.log(Data);
+                                if(Data.success){
+                                    setID(Data.data);
+                                    localStorage.setItem('chatID',Data.data);
+                                }
+                        })
+                        .catch((err) => {
+                        console.log(err.message);
+                        });
+                      }
+                  }
+setLoader(false);
+},[]);
 
 
-    }, []);
 
 return (
   <>

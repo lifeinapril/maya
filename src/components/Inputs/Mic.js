@@ -40,7 +40,7 @@ function Mic(props) {
   if (!browserSupportsSpeechRecognition) {
     return null
   }
-  console.log(`cahtID:${props.id}`);
+  
   const start = () => {
     setIsListening(true);
     SpeechRecognition.startListening({
@@ -59,7 +59,7 @@ function Mic(props) {
 
 
   const ask=function(){
-    props.action(props.id,finalTranscript);
+    props.action(finalTranscript);
   }
 
   const reset = () => {

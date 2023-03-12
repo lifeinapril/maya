@@ -14,6 +14,8 @@ function Chat(props) {
 
     useEffect(() => {
         if(props.id){
+            console.log("props.id:");
+            console.log(props.id);
             fetch(demo.api+'chat/'+props.id,{
                 method: 'GET'
                 }).then(response => response.json())

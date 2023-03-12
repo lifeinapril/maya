@@ -51,9 +51,9 @@ function ChatBox(props) {
 
 
      
-    function ask(id,question){
-        if(!id){
-            console.log("no chat");
+    function ask(question){
+        if(!props.id){
+            console.log("no chatID found");
             localStorage.removeItem("chatID");
         }else if(!question){
             console.log("no question");
@@ -64,7 +64,7 @@ function ChatBox(props) {
                 headers: {
                     'Content-Type': 'application/json'
                   },
-                  body:JSON.stringify({_id:id, text: question})
+                  body:JSON.stringify({_id:props.id, text: question})
                 }).then(response => response.json())
                 .then((Data) => {
                     startLoader(false);
@@ -117,8 +117,8 @@ return (
             <div className={"footer "+(props.dark ? "bg-dark":"bg-light")}>     
                 <div className="center_convo">
                     <br/>
-                {props.inputMode==="text" && (<Text action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
-                 {props.inputMode==="mic" && (<Mic action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
+                {props.inputMode==="text" && (<Text action={ask} dark={props.dark} loading={isLoading}/>)}
+                 {props.inputMode==="mic" && (<Mic action={ask} dark={props.dark} loading={isLoading}/>)}
                         <div className="text-center">
                             <small style={{fontSize:13}}>
                                 &copy; {new Date().getFullYear()} Copyright: DeenDevs. Designed for learning & development

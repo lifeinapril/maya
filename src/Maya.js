@@ -111,7 +111,7 @@ var changeSpeech=function(value){
                 if(localStorage.getItem('chatID')){
                       setID(localStorage.getItem('chatID'));
                   }else{
-                  setBody({user:user._id,ip:ip})
+                  setBody({user:account,ip:ip})
                   fetch(demo.api+'chat/new',{
                       method: 'POST',
                       body:body

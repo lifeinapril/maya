@@ -20,7 +20,7 @@ import Auth from './pages/Auth';
 const TRACKING_ID = "UA-198127599-2"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 const Maya = function(){
-  const [user , setUser ] = useState({});
+  const [user , setUser ] = useState(null);
   const [isLoading,setLoader] = useState(true);
   const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false});
   const [show , showSettings ] = useState(false);
@@ -70,7 +70,7 @@ var changeSpeech=function(value){
 
     ReactGA.pageview(window.location.pathname + window.location.search);
     const account = localStorage.getItem('account');
-    if(account){
+    if(account!=null){
         fetch(demo.api+'user/info',{
           method: 'POST',
           headers: {
@@ -155,7 +155,7 @@ return (
             <Offcanvas.Title>Settings</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-              <Settings changeMode={changeMode} changeInput={changeInput} clearChat={clearChat} changeSpeech={changeSpeech} dark={settings.dark}  inputMode={settings.mode}  speechMode={settings.speak}/>
+              <Settings changeMode={changeMode} user={user} changeInput={changeInput} clearChat={clearChat} changeSpeech={changeSpeech} dark={settings.dark}  inputMode={settings.mode}  speechMode={settings.speak}/>
           </Offcanvas.Body>
      </Offcanvas>
      <HeadBar icon={demo.icon} name={demo.name} user={user} dark={settings.dark} openSettings={openSettings}/>

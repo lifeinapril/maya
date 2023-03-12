@@ -1,6 +1,6 @@
 
 import {  ListGroup,Form } from 'react-bootstrap';
-import { RiMoonFill,RiSunFill, RiChatDeleteFill } from "react-icons/ri";
+import { RiMoonFill,RiSunFill, RiChatDeleteFill, RiLogoutBoxFill } from "react-icons/ri";
 
 function Settings(props) {
   
@@ -14,6 +14,12 @@ function Settings(props) {
 
   var ChangeSpeech=function(value){
     props.ChangeSpeech(value);
+  }
+
+  var Logout=function(){
+    localStorage.removeItem("account");
+    ClearConvo();
+    window.location.reload();
   }
 
 
@@ -44,6 +50,15 @@ function Settings(props) {
                     <option value={true}>Enabled</option>
                     <option value={false}>Disabled</option>
                 </Form.Select>
+
+                <br/>
+                <br/>
+
+                {props.user && (
+                <ListGroup.Item as="li" onClick={Logout} className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>
+                  <small className='red'><RiLogoutBoxFill/>&nbsp;&nbsp;&nbsp;Logout</small> 
+                </ListGroup.Item>
+                )}
 
               </ListGroup>
             </>

@@ -138,3 +138,12 @@ input:focus { outline: none !important; }
   color: #ffffff !important;
   background-color: #3e3e3e !important;
 }
+
+
+.microphone-status{
+  float: left !important;
+  width: 100% !important;
+  margin: 5px !important;
+  text-align: center;
+  padding: 20px !important;
+}

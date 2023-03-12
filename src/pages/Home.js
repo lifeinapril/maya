@@ -9,12 +9,12 @@ function Home(props) {
     const [user, setUser] = useState(null);
     const [ip, setIP] = useState(null);
     const [body,setBody] = useState({ip:ip});
-    const [dark_mode,changeMode] = useState(true);
+    const [settings,changeSettings] = useState({dark:true,mode:"mic"});
 
 
     var Mode=function(){
-        changeMode(!dark_mode);
-        localStorage.setItem('mood',dark_mode);
+        changeSettings({dark:settings.dark,mode:"mic"});
+        localStorage.setItem('settings',settings);
     }
     var clearChat=function(){
         setID(null);
@@ -23,7 +23,9 @@ function Home(props) {
    
 
   useEffect(() => {
-            changeMode(localStorage.getItem('mood'));
+            if(localStorage.getItem('settings')){
+                changeSettings(localStorage.getItem('settings'));
+            }
             fetch('https://api.ipify.org/?format=json')
             .then(response => response.json())
             .then(response => {
@@ -59,8 +61,8 @@ function Home(props) {
                   
         return (
             <>
-                <HeadBar icon={demo.icon} name={demo.name} dark={dark_mode} user={props.user} changeMode={Mode} clearChat={clearChat}/>
-                <ChatBox id={id} dark={dark_mode} user={props.user}/>
+                <HeadBar icon={demo.icon} name={demo.name} dark={settings.dark} user={props.user} changeMode={Mode} clearChat={clearChat}/>
+                <ChatBox id={id} dark={settings.mode} user={props.user} mode="mic"/>
             </>
         );
 

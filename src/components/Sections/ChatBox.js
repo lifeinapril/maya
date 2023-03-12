@@ -1,29 +1,53 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
 import Message from "../Items/Message";
 import app from "../../Config";
 import "../../css/Chat.css";
 import SmallBox from "../Items/SmallBox";
-import {RiSendPlane2Fill, RiSunFill} from "react-icons/ri";
+import { RiSunFill} from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Text from "../Inputs/Text";
+import Mic from "../Inputs/Mic";
 
 
 function ChatBox(props) {
-    const [input, setInput] = useState('');
-    const [body, setBody] = useState();
     const [isLoading, startLoader] = useState(false);
-    const [chat, setChat] = useState({conversations:[]});
+    const [chat, loadChat] = useState({conversations:[]});
+    
     
     useEffect(() => {
         const objDiv = document.getElementById("chat");
         objDiv.scrollTop = objDiv.scrollHeight+200;
-    },[chat])
+    },[isLoading])
+
     
-    useEffect(() => {
-        setBody({ _id: chat._id, text: input });
-    },[input]);
+
+    function Speak(input) {
+        console.log("text to speech ......");
+        console.log(input);
+        fetch('https://texttospeech.googleapis.com/v1beta1/text:synthesize', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+           'Authorization': `Bearer AIzaSyDp9FzWUtN3bhDHd-9V9_nP1rmejKo68CI`
+         },
+         body: JSON.stringify({
+           input: { input },
+           voice: { languageCode: 'en-US', ssmlGender: 'FEMALE' },
+           audioConfig: { audioEncoding: 'MP3' }
+         })
+       }).then(response => response.json())
+       .then((data) => {
+        console.log("playing......");
+        console.log(data);
+         const audioUrl = URL.createObjectURL(`data:audio/mp3;base64,${data.audioContent}`);
+         audioUrl.play();
+       })
+       .catch((err) => {
+       console.log(err.message);
+       });
+     }
 
         useEffect(() => {
             if(props.id){
@@ -31,10 +55,8 @@ function ChatBox(props) {
             method: 'GET'
             }).then(response => response.json())
             .then((Data) => {
-                console.log("chat data:");
-                console.log(Data);
                 if(Data.success){
-                    setChat(Data.data);
+                    loadChat(Data.data);
                 }
             })
             .catch((err) => {
@@ -45,30 +67,29 @@ function ChatBox(props) {
 
     const notify = (msg) => toast(msg);
 
-    var ask = (e) => {
-        e.preventDefault();
-        if(!chat._id || !input){
+    function ask(id,question){
+        if(!id){
             console.log("no chat");
             localStorage.removeItem("chatID");
+        }else if(!question){
+            console.log("no question");
         }else{
             startLoader(true);
-            console.log("Body:");
-            console.log(body);
             fetch(app.api+'ask',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                   },
-                  body:JSON.stringify(body)
+                  body:JSON.stringify({_id:id, text: question})
                 }).then(response => response.json())
                 .then((Data) => {
-                    setInput("");
                     startLoader(false);
-                    console.log("Asked:");
-                    console.log(Data);
                     notify(Data.message);
                     if(Data.success){
-                        setChat(Data.data);
+                        loadChat(Data.data);
+                            if(props.mode==="mic"){
+                                Speak(Data.data.conversations[Data.data.conversations.length-1].output);
+                        }
                     }else{
                         localStorage.removeItem("chatID");
                     }
@@ -117,22 +138,8 @@ return (
             <ToastContainer />
             <div className={"footer "+(props.dark ? "bg-dark":"bg-light")}>     
                 <div className="center_convo">
-                        <Form onSubmit={ask}>
-                                <div className="input-group">
-                                <Form.Control className={"maya-input "+(props.dark ? "bg-grey":"bg-light")} disabled={isLoading} value={input} onChange={e => setInput(e.target.value)} placeholder="Ask me anything" />
-                                <Button disabled={isLoading || !input} variant="clear" type="submit" size='lg'>
-                                    {isLoading ? (
-                                            <Spinner  as="span"
-                                            animation="border"
-                                            size="sm"
-                                            role="status"
-                                            aria-hidden="true" variant={props.dark ? "light":"danger"} />
-                                    ) : (
-                                            <RiSendPlane2Fill color={props.dark ? "#fff":"#000"}/>
-                                        )}
-                                    </Button>
-                            </div>
-                        </Form>
+                {props.mode==="text" && (<Text action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
+                 {props.mode==="mic" && (<Mic action={ask} id={props.id} dark={props.dark} loading={isLoading}/>)}
                         <div className="text-center">
                             <small style={{fontSize:13}}>
                                 &copy; {new Date().getFullYear()} Copyright: DeenDevs. Designed for learning & development

@@ -79,13 +79,13 @@ function Settings(props) {
                 <br/>
 
 
-                <br/>
+                {/* <br/>
 
                 {props.user && (
                 <ListGroup.Item as="li" onClick={Logout} className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>
                   <small className='red'><RiLogoutBoxFill/>&nbsp;&nbsp;&nbsp;Logout</small> 
                 </ListGroup.Item>
-                )}
+                )} */}
 
               </ListGroup>
             </>

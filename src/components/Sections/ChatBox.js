@@ -32,7 +32,7 @@ function ChatBox(props) {
         console.log(input);
         const naturalVoice = window.speechSynthesis.getVoices();
         const utterance = new SpeechSynthesisUtterance(input);
-        utterance.voice = naturalVoice[147 || props.voiceMode];
+        utterance.voice = naturalVoice[props.voiceMode];
         utterance.rate = 1; // Adjust the rate to make it sound more natural
         utterance.pitch = 0.95; // Adjust the pitch to make it sound more human-like
         utterance.volume=10;

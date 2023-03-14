@@ -105,3 +105,12 @@ body {
   background-color:#888888ab !important;
   opacity: 1;
 }
+
+
+
+@media only screen and (max-width: 590px) {
+  .message_a,.message_b{
+      min-width: 100px !important;
+      max-width: 350px !important;
+  }
+}

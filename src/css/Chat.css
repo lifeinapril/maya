@@ -26,8 +26,8 @@
     position: relative;
     float: right !important;
     width: auto !important;
-    min-width: 100px !important;
-    max-width: 600px !important;
+    min-width: 80px;
+    max-width: 600px;
     margin: 10px !important;
     padding: 6px !important;
     margin-right: 10px !important;
@@ -44,8 +44,8 @@
     position: relative;
     float: left !important;
     width: auto !important;
-    min-width: 100px !important;
-    max-width: 450px !important;
+    min-width: 80px;
+    max-width: 450px;
     margin: 6px !important;
     padding: 6px !important;
     margin-left: 0px !important;

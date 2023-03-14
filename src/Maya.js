@@ -22,7 +22,7 @@ ReactGA.initialize(TRACKING_ID);
 const Maya = function(){
   const [user , setUser ] = useState(null);
   const [isLoading,setLoader] = useState(true);
-  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false,voice:147});
+  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false,voice:110});//147
   const [show , showSettings ] = useState(false);
   const [chatid, setID] = useState();
   const [ip, setIP] = useState(null);

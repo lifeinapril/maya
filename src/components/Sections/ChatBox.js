@@ -30,27 +30,13 @@ function ChatBox(props) {
     function Speak(input) {
         console.log("text to speech ......");
         console.log(input);
-        fetch('https://texttospeech.googleapis.com/v1beta1/text:synthesize', {
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/json',
-           'Authorization': `Bearer AIzaSyDp9FzWUtN3bhDHd-9V9_nP1rmejKo68CI`
-         },
-         body: JSON.stringify({
-           input: { input },
-           voice: { languageCode: 'en-US', ssmlGender: 'FEMALE' },
-           audioConfig: { audioEncoding: 'MP3' }
-         })
-       }).then(response => response.json())
-       .then((data) => {
-        console.log("playing......");
-        console.log(data);
-         const audioUrl = URL.createObjectURL(`data:audio/mp3;base64,${data.audioContent}`);
-         audioUrl.play();
-       })
-       .catch((err) => {
-       console.log(err.message);
-       });
+        const naturalVoice = window.speechSynthesis.getVoices();
+        const utterance = new SpeechSynthesisUtterance(input);
+        utterance.voice = naturalVoice[147 || props.voiceMode];
+        utterance.rate = 1; // Adjust the rate to make it sound more natural
+        utterance.pitch = 0.95; // Adjust the pitch to make it sound more human-like
+        utterance.volume=10;
+        window.speechSynthesis.speak(utterance);
      }
 
 
@@ -96,7 +82,7 @@ return (
                         props.messages.map(function(message,i){
                             if(message){
                                 return(
-                                    <Message key={i} input={message.input} output={message.output}/>
+                                    <Message key={i} speaker={Speak} input={message.input} output={message.output}/>
                                 )
                             }else{
                                 return null;

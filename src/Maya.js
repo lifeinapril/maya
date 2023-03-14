@@ -22,13 +22,18 @@ ReactGA.initialize(TRACKING_ID);
 const Maya = function(){
   const [user , setUser ] = useState(null);
   const [isLoading,setLoader] = useState(true);
-  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false});
+  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false,voice:0});
   const [show , showSettings ] = useState(false);
   const [chatid, setID] = useState();
   const [ip, setIP] = useState(null);
 
   const CloseSettings = () => showSettings(false);
   const openSettings = () => showSettings(true);
+
+
+  useEffect(() => {
+    console.log('settings changed');
+  }, [settings]);
 
   var changeMode=function(){
     settings.dark=!settings.dark;
@@ -53,6 +58,14 @@ var clearChat=function(){
 
 var changeSpeech=function(value){
   settings.speak=value;
+  console.log(value);
+  changeSettings(settings);
+  localStorage.setItem("settings",settings);
+  CloseSettings();
+}
+
+var changeVoice=function(value){
+  settings.voice=value;
   changeSettings(settings);
   CloseSettings();
   localStorage.setItem("settings",settings);
@@ -173,14 +186,14 @@ return (
             <Offcanvas.Title>Settings</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-              <Settings changeMode={changeMode} user={user} changeInput={changeInput} clearChat={clearChat} changeSpeech={changeSpeech} dark={settings.dark}  inputMode={settings.mode}  speechMode={settings.speak}/>
+              <Settings changeMode={changeMode} user={user} changeInput={changeInput} clearChat={clearChat} changeSpeech={changeSpeech} changeVoice={changeVoice} dark={settings.dark}  voiceMode={settings.voice}  inputMode={settings.mode}  speechMode={settings.speak}/>
           </Offcanvas.Body>
      </Offcanvas>
      <HeadBar icon={demo.icon} name={demo.name} user={user} dark={settings.dark} openSettings={openSettings}/>
       <Routes>
       <Route path='/auth' element={<Auth/>}/>
       <Route path='/auth/:token' element={<Auth/>}/>
-      <Route path='/' element={<Chat user={user} id={chatid} inputMode={settings.mode} speechMode={settings.speak} darkMode={settings.dark}/>}/>
+      <Route path='/' element={<Chat user={user} id={chatid} voiceMode={settings.voice} inputMode={settings.mode} speechMode={settings.speak} darkMode={settings.dark}/>}/>
       </Routes>
     </BrowserRouter>
   </>

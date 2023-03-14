@@ -1,9 +1,9 @@
-
+import React,{useState,useEffect} from 'react';
 import {  ListGroup,Form } from 'react-bootstrap';
 import { RiMoonFill,RiSunFill, RiChatDeleteFill, RiLogoutBoxFill } from "react-icons/ri";
 
 function Settings(props) {
-  
+  const [voices, setVoices] = useState([]);
   var Mode=function(){
     props.changeMode();
   }
@@ -13,7 +13,15 @@ function Settings(props) {
   }
 
   var ChangeSpeech=function(value){
-    props.ChangeSpeech(value);
+    props.changeSpeech(value);
+  }
+  var ChangeVoice=function(value){
+    console.log(value);
+    props.changeVoice(value);
+  }
+
+  var ClearConvo=function(){
+    props.clearChat();
   }
 
   var Logout=function(){
@@ -22,11 +30,13 @@ function Settings(props) {
     window.location.reload();
   }
 
-
-  var ClearConvo=function(){
-    props.clearChat();
-  }
-
+  useEffect(() => {
+    const voices = window.speechSynthesis.getVoices();
+    setVoices(voices);
+  }, []);
+  
+  
+  
         return (
             <>
               <ListGroup as="ol">
@@ -45,6 +55,8 @@ function Settings(props) {
                 </Form.Select>
                 <br/>
 
+             
+
                 <Form.Label><small>Speech Synthesis</small></Form.Label>
                  <Form.Select className={props.dark ? "bg-grey":"bg-light"}  value={props.speechMode} onChange={e => ChangeSpeech(e.target.value)}>
                     <option value={true}>Enabled</option>
@@ -52,6 +64,21 @@ function Settings(props) {
                 </Form.Select>
 
                 <br/>
+                  {props.speechMode && (
+                    <>
+                    <Form.Label><small>Select Voice</small></Form.Label>
+                    <Form.Select className={props.dark ? "bg-grey":"bg-light"}  value={props.voiceMode} onChange={e => ChangeVoice(e.target.value)}>
+                        {voices.map((voice, index) => (
+                              <option key={index} value={index}>
+                                {voice.name} ({voice.lang}) {voice.default && ' [Default]'}
+                              </option>
+                            ))}
+                    </Form.Select>
+                    </>
+                  )}
+                <br/>
+
+
                 <br/>
 
                 {props.user && (

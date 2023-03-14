@@ -44,6 +44,9 @@ const Maya = function(){
 
 var changeInput=function(value){
   settings.mode=value;
+  if(value==="mic"){
+    settings.speak=true;
+  }
   changeSettings(settings);
   CloseSettings();
   localStorage.setItem("settings",settings);

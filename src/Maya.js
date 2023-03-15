@@ -22,7 +22,7 @@ ReactGA.initialize(TRACKING_ID);
 const Maya = function(){
   const [user , setUser ] = useState(null);
   const [isLoading,setLoader] = useState(true);
-  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false,voice:110});//147
+  const [settings,changeSettings] = useState({dark:true,mode:"text",speak:false,voice:"Tessa"});//147
   const [show , showSettings ] = useState(false);
   const [chatid, setID] = useState();
   const [ip, setIP] = useState(null);
@@ -73,6 +73,26 @@ var changeVoice=function(value){
   CloseSettings();
   localStorage.setItem("settings",settings);
 }
+  // const detectedLanguage = "en"// detectLanguage.detect(input);
+  //       switch (detectedLanguage) {
+  //           case 'en':
+  //             changeVoice('Google US English');
+  //           break;
+  //           case 'ko':
+  //             changeVoice('Yuna');
+  //           break;
+  //           case 'zh':
+  //             changeVoice('TingTing');
+  //           break;
+  //           case 'es':
+  //             changeVoice('Paulina');
+  //           break;
+  //           case 'za':
+  //             changeVoice('Tessa (en-ZA) [Default]');
+  //           break;
+  //           default:
+  //             changeVoice('Google US English');
+  //       }
 
 
   useEffect(() => {

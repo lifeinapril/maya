@@ -64,28 +64,28 @@ function Settings(props) {
                 </Form.Select>
 
                 <br/>
-                  {props.speechMode && (
+                  {/* {props.speechMode && (
                     <>
                     <Form.Label><small>Select Voice</small></Form.Label>
                     <Form.Select className={props.dark ? "bg-grey":"bg-light"}  value={props.voiceMode} onChange={e => ChangeVoice(e.target.value)}>
                         {voices.map((voice, index) => (
-                              <option key={index} value={index}>
-                                {voice.name} ({voice.lang}) {voice.default && ' [Default]'}
+                              <option key={index} value={voice.name}>
+                                {voice.name} ({voice.lang})
                               </option>
                             ))}
                     </Form.Select>
                     </>
                   )}
+                <br/> */}
+
+
                 <br/>
-
-
-                {/* <br/>
 
                 {props.user && (
                 <ListGroup.Item as="li" onClick={Logout} className={"d-flex "+(props.dark ? "bg-dark":"bg-light")}>
                   <small className='red'><RiLogoutBoxFill/>&nbsp;&nbsp;&nbsp;Logout</small> 
                 </ListGroup.Item>
-                )} */}
+                )}
 
               </ListGroup>
             </>

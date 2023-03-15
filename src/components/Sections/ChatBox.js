@@ -28,14 +28,12 @@ function ChatBox(props) {
     
 
     function Speak(input) {
-        console.log("text to speech ......");
-        console.log(input);
-        const naturalVoice = window.speechSynthesis.getVoices();
+        const naturalVoice = window.speechSynthesis.getVoices().find((voice) => voice.name === props.voiceMode);
         const utterance = new SpeechSynthesisUtterance(input);
-        utterance.voice = naturalVoice[props.voiceMode];
-        utterance.rate = 1; // Adjust the rate to make it sound more natural
-        utterance.pitch = 0.95; // Adjust the pitch to make it sound more human-like
-        utterance.volume=10;
+        utterance.voice = naturalVoice;
+        utterance.rate = 0.99; // Adjust the rate to make it sound more natural
+        utterance.pitch = 1; // Adjust the pitch to make it sound more human-like
+        utterance.volume=100;
         window.speechSynthesis.speak(utterance);
      }
 

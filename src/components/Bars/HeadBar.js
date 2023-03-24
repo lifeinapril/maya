@@ -18,8 +18,7 @@ return (
                       <img 
                         alt="logo"
                         src={props.icon}
-                        style={{height:30,marginLeft:0}}
-                      />
+                        style={{height:30,marginLeft:0}}/>
             </Navbar.Brand>
             <Nav></Nav>
             <Nav></Nav>
